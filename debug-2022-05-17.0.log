@@ -1,0 +1,126 @@
+2022-05-17 11:03:28.830 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? and `password` = ? AND status = "1"
+2022-05-17 11:03:28.830 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? and `password` = ? AND status = "1"
+2022-05-17 11:03:28.856 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String), 1(String)
+2022-05-17 11:03:28.856 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String), 1(String)
+2022-05-17 11:03:28.901 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:03:28.901 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:10:33.402 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? and `password` = ? AND status = "1"
+2022-05-17 11:10:33.402 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? and `password` = ? AND status = "1"
+2022-05-17 11:10:33.426 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String), 1(String)
+2022-05-17 11:10:33.426 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String), 1(String)
+2022-05-17 11:10:33.449 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:10:33.449 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:10:41.058 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.queryExistUser -==>  Preparing: SELECT count(1) FROM user_info where username = ?
+2022-05-17 11:10:41.058 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.queryExistUser -==>  Preparing: SELECT count(1) FROM user_info where username = ?
+2022-05-17 11:10:41.058 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.queryExistUser -==> Parameters: sss(String)
+2022-05-17 11:10:41.058 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.queryExistUser -==> Parameters: sss(String)
+2022-05-17 11:10:41.066 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.queryExistUser -<==      Total: 1
+2022-05-17 11:10:41.066 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.queryExistUser -<==      Total: 1
+2022-05-17 11:10:41.071 [http-nio-8085-exec-7] DEBUG c.a.q.d.UserEntityMapper.addUserInfo -==>  Preparing: insert into user_info ( id, username, password, start_time, stop_time, status, created_by, creation_date, last_updated_by, last_update_date ) values ( ?, ?, ?, ?, ?, 1, ?, ?, ?, ? )
+2022-05-17 11:10:41.071 [http-nio-8085-exec-7] DEBUG c.a.q.d.UserEntityMapper.addUserInfo -==>  Preparing: insert into user_info ( id, username, password, start_time, stop_time, status, created_by, creation_date, last_updated_by, last_update_date ) values ( ?, ?, ?, ?, ?, 1, ?, ?, ?, ? )
+2022-05-17 11:10:41.075 [http-nio-8085-exec-7] DEBUG c.a.q.d.UserEntityMapper.addUserInfo -==> Parameters: 6cf605eb77b74156a8eca4ab35f79516(String), sss(String), ss(String), 2022-05-17 11:10:37.0(Timestamp), 2022-06-16 11:10:37.0(Timestamp), admin(String), 2022-05-17 11:10:41.0(Timestamp), admin(String), 2022-05-17 11:10:41.0(Timestamp)
+2022-05-17 11:10:41.075 [http-nio-8085-exec-7] DEBUG c.a.q.d.UserEntityMapper.addUserInfo -==> Parameters: 6cf605eb77b74156a8eca4ab35f79516(String), sss(String), ss(String), 2022-05-17 11:10:37.0(Timestamp), 2022-06-16 11:10:37.0(Timestamp), admin(String), 2022-05-17 11:10:41.0(Timestamp), admin(String), 2022-05-17 11:10:41.0(Timestamp)
+2022-05-17 11:10:41.101 [http-nio-8085-exec-7] DEBUG c.a.q.d.UserEntityMapper.addUserInfo -<==    Updates: 1
+2022-05-17 11:10:41.101 [http-nio-8085-exec-7] DEBUG c.a.q.d.UserEntityMapper.addUserInfo -<==    Updates: 1
+2022-05-17 11:16:19.258 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? and `password` = ? AND status = "1"
+2022-05-17 11:16:19.258 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? and `password` = ? AND status = "1"
+2022-05-17 11:16:19.281 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String), 1(String)
+2022-05-17 11:16:19.281 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String), 1(String)
+2022-05-17 11:16:19.300 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:16:19.300 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:36:51.254 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:36:51.254 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:36:51.277 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:36:51.277 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:36:51.294 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:36:51.294 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:36:52.305 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:36:52.305 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:36:52.306 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:36:52.306 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:36:52.307 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:36:52.307 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:36:52.986 [http-nio-8085-exec-2] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:36:52.986 [http-nio-8085-exec-2] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:36:52.987 [http-nio-8085-exec-2] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:36:52.987 [http-nio-8085-exec-2] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:36:52.988 [http-nio-8085-exec-2] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:36:52.988 [http-nio-8085-exec-2] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:36:53.177 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:36:53.177 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:36:53.178 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:36:53.178 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:36:53.179 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:36:53.179 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:03.605 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:03.605 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:03.605 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:03.605 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:03.607 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:03.607 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:07.629 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:07.629 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:07.629 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:07.629 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:07.631 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:07.631 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:07.809 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:07.809 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:07.810 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:07.810 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:07.811 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:07.811 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:08.017 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:08.017 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:08.018 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:08.018 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:08.020 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:08.020 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:08.240 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:08.240 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:08.240 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:08.240 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:08.241 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:08.241 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:08.464 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:08.464 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:08.465 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:08.465 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:08.466 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:08.466 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:08.667 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:08.667 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:08.667 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:08.667 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:08.668 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:08.668 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:08.891 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:08.891 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:08.892 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:08.892 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:08.893 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:08.893 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:12.098 [http-nio-8085-exec-2] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:12.098 [http-nio-8085-exec-2] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:12.098 [http-nio-8085-exec-2] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:12.098 [http-nio-8085-exec-2] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:12.100 [http-nio-8085-exec-2] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:12.100 [http-nio-8085-exec-2] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:12.289 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:12.289 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:12.289 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:12.289 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:12.290 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:12.290 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:12.904 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:12.904 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:12.904 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:12.904 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:12.906 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:12.906 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:13.088 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:13.088 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-05-17 11:37:13.089 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:13.089 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-05-17 11:37:13.092 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-05-17 11:37:13.092 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1

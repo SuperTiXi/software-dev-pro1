@@ -106,7 +106,6 @@ public class UserEntity implements Serializable {
      */
     private Date lastUpdateDate;
 
-
     private List<String> roleStrlist;
 
     public List<String> getRoleStrlist() {

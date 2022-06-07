@@ -2,10 +2,10 @@ package com.aim.questionnaire.controller;
 
 import com.aim.questionnaire.beans.HttpResponseEntity;
 import com.aim.questionnaire.common.Constans;
+import com.aim.questionnaire.dao.ProjectEntityMapper;
 import com.aim.questionnaire.dao.entity.ProjectEntity;
 import com.aim.questionnaire.service.ProjectService;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.session.Session;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +28,8 @@ public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
+    @Autowired
+    ProjectEntityMapper projectEntityMapper;
 
     /**
      * 查询全部项目的信息
@@ -37,9 +39,9 @@ public class ProjectController {
     @RequestMapping(value = "/queryProjectList",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity queryProjectList(@RequestBody(required = false) ProjectEntity projectEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        List<Object> result = projectService.queryProjectList(projectEntity);
+        List<Map<String,Object>> res = projectEntityMapper.queryProjectList(projectEntity);
         httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-        httpResponseEntity.setData(result);
+        httpResponseEntity.setData(res);
         return httpResponseEntity;
     }
 
@@ -51,14 +53,7 @@ public class ProjectController {
     @RequestMapping(value = "/deleteProjectById",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity deleteProjectById(ProjectEntity projectEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-            int result = projectService.deleteProjectById(projectEntity);
-            if(result == -1) {
-                httpResponseEntity.setCode(Constans.EXIST_CODE);
-                httpResponseEntity.setMessage(Constans.PROJECT_EXIST_MESSAGE);
-            }else {
-                httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-                httpResponseEntity.setMessage(Constans.DELETE_MESSAGE);
-            }
+           
         return httpResponseEntity;
     }
 
@@ -70,10 +65,7 @@ public class ProjectController {
     @RequestMapping(value = "/addProjectInfo",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity addProjectInfo(@RequestBody ProjectEntity projectEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-            int result = projectService.addProjectInfo(projectEntity,"admin");
-            httpResponseEntity.setData(result);
-            httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-            httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+            
         return httpResponseEntity;
     }
 
@@ -85,10 +77,7 @@ public class ProjectController {
     @RequestMapping(value = "/modifyProjectInfo",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity modifyProjectInfo(@RequestBody ProjectEntity projectEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-            int result = projectService.modifyProjectInfo(projectEntity,"admin");
-            httpResponseEntity.setData(result);
-            httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-            httpResponseEntity.setMessage(Constans.UPDATE_MESSAGE);
+            
         return httpResponseEntity;
     }
 
@@ -101,9 +90,7 @@ public class ProjectController {
     @RequestMapping(value = "/queryAllProjectName",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity queryAllProjectName() {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-            List<Map<String,Object>> result = projectService.queryAllProjectName();
-            httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-            httpResponseEntity.setData(result);
+          
         return httpResponseEntity;
     }
 }
