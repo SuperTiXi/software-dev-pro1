@@ -66,7 +66,7 @@ spring:
     #连接mysql8数据库
     url: jdbc:mysql://127.0.0.1:3306/questionnaire?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
-    password: 6143184382713Lnz
+    password: TGPqaz123
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 
