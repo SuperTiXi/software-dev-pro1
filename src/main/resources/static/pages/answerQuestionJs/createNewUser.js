@@ -38,7 +38,8 @@ function changeTitle() {
                 layer.msg("起止时间不能为空", {icon: 2});
             }  else if (userName.length > 10 || password.length > 10) {
                 layer.msg("账号或者密码最多不可超过10个字", {icon: 2});
-            } else {
+            }
+            else {
                 var roleId = $("#userRoleAll").val();
 
                 var url = '/admin/addUserInfo';
