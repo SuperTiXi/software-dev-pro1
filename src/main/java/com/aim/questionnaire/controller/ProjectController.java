@@ -37,11 +37,12 @@ public class ProjectController {
      * @return
      */
     @RequestMapping(value = "/queryProjectList",method = RequestMethod.POST, headers = "Accept=application/json")
-    public HttpResponseEntity queryProjectList(@RequestBody(required = false) ProjectEntity projectEntity) {
+    public HttpResponseEntity queryProjectList(@RequestBody ProjectEntity projectEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
         List<Map<String,Object>> res = projectEntityMapper.queryProjectList(projectEntity);
         httpResponseEntity.setCode(Constans.SUCCESS_CODE);
         httpResponseEntity.setData(res);
+        httpResponseEntity.setMessage(Constans.STATUS_MESSAGE);
         return httpResponseEntity;
     }
 
@@ -51,9 +52,22 @@ public class ProjectController {
      * @return
      */
     @RequestMapping(value = "/deleteProjectById",method = RequestMethod.POST, headers = "Accept=application/json")
-    public HttpResponseEntity deleteProjectById(ProjectEntity projectEntity) {
+    public HttpResponseEntity deleteProjectById(@RequestBody ProjectEntity projectEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-           
+
+        int flag = projectService.deleteProjectById(projectEntity);
+        if(flag!=0){
+
+            httpResponseEntity.setMessage(Constans.DELETE_MESSAGE);
+            httpResponseEntity.setCode(Constans.SUCCESS_CODE);
+            httpResponseEntity.setData(projectEntity);
+
+        }
+        else {
+            httpResponseEntity.setMessage("删除失败！！");
+            httpResponseEntity.setCode(Constans.MODEL_DELETE_FAIL);
+            httpResponseEntity.setData(null);
+        }
         return httpResponseEntity;
     }
 
@@ -65,7 +79,24 @@ public class ProjectController {
     @RequestMapping(value = "/addProjectInfo",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity addProjectInfo(@RequestBody ProjectEntity projectEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-            
+
+        int flag = projectService.addProjectInfo(projectEntity);
+        if(flag!=0){
+
+            httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+            httpResponseEntity.setCode(Constans.SUCCESS_CODE);
+            httpResponseEntity.setData(projectEntity);
+
+        }
+        else {
+            httpResponseEntity.setMessage("创建失败！！");
+            httpResponseEntity.setCode(Constans.LOGOUT_NO_CODE);
+            httpResponseEntity.setData(null);
+        }
+
+
+
+
         return httpResponseEntity;
     }
 
@@ -77,7 +108,8 @@ public class ProjectController {
     @RequestMapping(value = "/modifyProjectInfo",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity modifyProjectInfo(@RequestBody ProjectEntity projectEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-            
+
+
         return httpResponseEntity;
     }
 

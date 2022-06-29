@@ -54,14 +54,14 @@ public class UserController {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
 
         try {
-            List<UserEntity> hasUser = userEntityMapper.selectUserInfo(userEntity);
+            List<UserEntity> hasUser = userEntityMapper.selectUserInfo(userEntity.getUsername());
             if(CollectionUtils.isEmpty(hasUser)||!hasUser.get(0).getPassword().equals(userEntity.getPassword())) {
                 httpResponseEntity.setCode(Constans.EXIST_CODE);
             	httpResponseEntity.setData(null);
             	httpResponseEntity.setMessage(Constans.LOGIN_USERNAME_PASSWORD_MESSAGE);
             }else {
             	httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-            	httpResponseEntity.setData(userEntity);
+            	httpResponseEntity.setData(hasUser.get(0));
             	httpResponseEntity.setMessage(Constans.LOGIN_MESSAGE);
             }
 

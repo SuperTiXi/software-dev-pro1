@@ -110,6 +110,7 @@
          var data = {
              "id": projectId
          };
+
          commonAjaxPost(true, url, data, function (result) {
              // //console.log(result);
              if (result.code == "666") {

@@ -266,4 +266,15 @@ public class ProjectEntity {
     public void setLastUpdateDate(Date lastUpdateDate) {
         this.lastUpdateDate = lastUpdateDate;
     }
+
+    public ProjectEntity(String id, String userId, String projectName, String projectContent, String createdBy, Date creationDate, String lastUpdatedBy, Date lastUpdateDate) {
+        this.id = id;
+        this.userId = userId;
+        this.projectName = projectName;
+        this.projectContent = projectContent;
+        this.createdBy = createdBy;
+        this.creationDate = creationDate;
+        this.lastUpdatedBy = lastUpdatedBy;
+        this.lastUpdateDate = lastUpdateDate;
+    }
 }

@@ -16,7 +16,7 @@ import java.util.*;
 public class ProjectService {
 
     @Autowired
-    private ProjectEntityMapper projectEntityMapper;
+    private ProjectEntityMapper projectEntityMapper ;
 
 
     /**
@@ -24,9 +24,17 @@ public class ProjectService {
      * @param projectEntity
      * @return
      */
-    public int addProjectInfo(ProjectEntity projectEntity,String user) {
-        
-        return 0;
+    public int addProjectInfo(ProjectEntity projectEntity) {
+
+        String id = UUIDUtil.getOneUUID();
+        projectEntity.setId(id);
+        projectEntity.setCreationDate(DateUtil.dateToSqlDate(DateUtil.getCurrentDate(),null));
+        projectEntity.setLastUpdateDate(DateUtil.dateToSqlDate(DateUtil.getCurrentDate(),null));
+
+
+
+
+        return projectEntityMapper.insert(projectEntity);
     }
 
     /**
@@ -34,7 +42,7 @@ public class ProjectService {
      * @param projectEntity
      * @return
      */
-    public int modifyProjectInfo(ProjectEntity projectEntity,String user) {
+    public int modifyProjectInfo(ProjectEntity projectEntity) {
        
         return 0;
     }
@@ -45,8 +53,12 @@ public class ProjectService {
      * @return
      */
     public int deleteProjectById(ProjectEntity projectEntity) {
-       
-        return 0;
+
+
+
+
+
+        return projectEntityMapper.deleteProjectById(projectEntity.getId());
     }
 
     /**
@@ -55,8 +67,10 @@ public class ProjectService {
      * @return
      */
     public List<Object> queryProjectList(ProjectEntity projectEntity) {
+
         List<Object> resultList = new ArrayList<Object>();
-        
+        List<Map<String,Object>> map =projectEntityMapper.queryProjectList(projectEntity);
+
         return resultList;
     }
 
