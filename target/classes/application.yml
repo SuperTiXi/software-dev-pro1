@@ -64,9 +64,9 @@ spring:
     # password: lying
     # driver-class-name: com.mysql.jdbc.Driver
     #连接mysql8数据库
-    url: jdbc:mysql://127.0.0.1:3306/questionnaire?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: root
-    password: TGPqaz123
+    url: jdbc:mysql://rm-bp1ppkxze9d0j7y1qto.mysql.rds.aliyuncs.com:3306/questionnaire?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: neueduxiong
+    password: Neu2007rj
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 
