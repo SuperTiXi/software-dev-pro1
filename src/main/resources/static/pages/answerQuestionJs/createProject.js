@@ -5,6 +5,7 @@ var flag = true;
 var projectName = '';
 var projectContent = '';
 
+var id =
 $(function () {
     isLoginFun();
     header();
@@ -15,6 +16,7 @@ $(function () {
 function createProject() {
     projectName = $("#projectName").val();
     projectContent = $("#inputIntro").val();
+
     createProjectRight();
 }
 
@@ -26,12 +28,20 @@ function createProjectRight() {
             layer.msg('请完整填写项目描述')
         } else {
             var userName = getCookie("userName");
+            var userId = getCookie("userId");
             var url = '/addProjectInfo';
             var data = {
                 "projectName": projectName,
                 "projectContent": projectContent,
                 "createdBy": userName,
-                "lastUpdatedBy": userName
+                "lastUpdatedBy": userName,
+
+
+
+
+                "userId":userId,
+
+
             };
             commonAjaxPost(false, url, data, function (result) {
                 //console.log(result)

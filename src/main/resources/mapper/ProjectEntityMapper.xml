@@ -27,6 +27,10 @@
   </delete>
   <insert id="insert" parameterType="com.aim.questionnaire.dao.entity.ProjectEntity">
 
+insert into project_info
+values(#{id},#{userId},#{projectName},#{projectContent},#{createdBy},#{creationDate},#{lastUpdatedBy},#{lastUpdateDate});
+
+
   </insert>
   <insert id="insertSelective" parameterType="com.aim.questionnaire.dao.entity.ProjectEntity">
 
@@ -40,7 +44,7 @@
 
   <!--根据项目id删除项目-->
   <delete id="deleteProjectById" parameterType="java.lang.String">
-
+delete  from project_info where id=#{id};
   </delete>
 
   <!--查询项目列表-->
@@ -48,6 +52,7 @@
     SELECT id,user_id as userId,project_name as projectName,created_by as createdBy,project_content as projectContent,
            creation_date as creationDate,last_updated_by as lastUpdatedBy,last_update_date as lastUpdateDate
     FROM project_info
+    WHERE '${projectName}' = '' OR projectName LIKE '%${projectName}%' OR createdBy LIKE '%${createdBy}%'
   </select>
 
   <!--查询全部项目的名字接口-->
