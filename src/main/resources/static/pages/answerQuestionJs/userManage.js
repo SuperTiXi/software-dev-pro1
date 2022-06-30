@@ -223,7 +223,7 @@ function deleteUser(id) {
             'status': ''
         };
     console.log(data);
-        commonAjaxPost(true, url, data, function (result) {
+    commonAjaxPost(true, url, data, function (result) {
             window.location.href = 'login.html';
 
             if (result.code=='666'){

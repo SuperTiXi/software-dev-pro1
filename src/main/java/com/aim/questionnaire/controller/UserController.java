@@ -134,7 +134,6 @@ public class UserController {
     @RequestMapping(value = "/modifyUserInfo",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity modifyUserInfo(@RequestBody Map<String,Object> map) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        System.err.println(map);
         int flag = userService.modifyUserInfo(map);
         if (flag==1) {
             httpResponseEntity.setCode(Constans.USER_USERNAME_CODE);

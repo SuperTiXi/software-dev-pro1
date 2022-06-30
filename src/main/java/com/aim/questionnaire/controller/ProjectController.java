@@ -86,7 +86,6 @@ public class ProjectController {
             httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(projectEntity);
-
         }
         else {
             httpResponseEntity.setMessage("创建失败！！");
