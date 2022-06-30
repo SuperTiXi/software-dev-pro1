@@ -205,4 +205,9 @@ public class UserController {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
         return httpResponseEntity;
     }
+    @RequestMapping(value = "/queryAllDataType",method = RequestMethod.POST, headers = "Accept=application/json")
+    public HttpResponseEntity queryAllDataType (@RequestBody UserEntity userEntity) {
+        HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
+        return httpResponseEntity;
+    }
 }
