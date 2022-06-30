@@ -35,7 +35,7 @@
  
  // 查看项目及其包含的问卷列表成功回调
  function getProjectQuestSuccess(result) {
-     console.log(result);
+     console.log(result.code);
      if (result.code == "666") {
          var data = result.data;
 
@@ -110,6 +110,7 @@
          var data = {
              "id": projectId
          };
+
          commonAjaxPost(true, url, data, function (result) {
              // //console.log(result);
              if (result.code == "666") {
