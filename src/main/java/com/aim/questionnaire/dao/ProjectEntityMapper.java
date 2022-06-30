@@ -55,4 +55,6 @@ public interface ProjectEntityMapper {
      */
     List<Map<String,Object>> queryAllProjectName();
 
+    int updateByPrimaryKey(ProjectEntity record);
+
 }

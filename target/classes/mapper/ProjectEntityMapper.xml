@@ -39,7 +39,9 @@ values(#{id},#{userId},#{projectName},#{projectContent},#{createdBy},#{creationD
 
   </update>
   <update id="updateByPrimaryKey" parameterType="com.aim.questionnaire.dao.entity.ProjectEntity">
-
+    update project_info
+    set project_name = #{projectName}, project_content = #{projectContent}
+    where id = #{id}
   </update>
 
   <!--根据项目id删除项目-->
@@ -52,7 +54,7 @@ delete  from project_info where id=#{id};
     SELECT id,user_id as userId,project_name as projectName,created_by as createdBy,project_content as projectContent,
            creation_date as creationDate,last_updated_by as lastUpdatedBy,last_update_date as lastUpdateDate
     FROM project_info
-    WHERE '${projectName}' = '' OR projectName LIKE '%${projectName}%' OR createdBy LIKE '%${createdBy}%'
+    WHERE created_by=#{createdBy} AND('${projectName}' = '' OR project_name LIKE '%${projectName}%')
   </select>
 
   <!--查询全部项目的名字接口-->

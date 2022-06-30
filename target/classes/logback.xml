@@ -224,6 +224,4 @@
         <appender-ref ref="STDOUT" />
         <appender-ref ref="ERROR-OUT" />
     </root>
-
-
 </configuration>

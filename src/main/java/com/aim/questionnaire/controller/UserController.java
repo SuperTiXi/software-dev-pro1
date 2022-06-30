@@ -203,7 +203,6 @@ public class UserController {
     @RequestMapping(value = "/error")
     public HttpResponseEntity logout() {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        
         return httpResponseEntity;
     }
 }

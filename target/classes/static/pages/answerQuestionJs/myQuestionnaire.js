@@ -22,6 +22,7 @@
  function getProjectQuest() {
      var keyWord = $("#keyWord").val();
      var userName = getCookie("userName");
+
      var url = '/queryProjectList';
      var data = {
          "projectName": keyWord,
@@ -110,6 +111,7 @@
          var data = {
              "id": projectId
          };
+
          commonAjaxPost(true, url, data, function (result) {
              // //console.log(result);
              if (result.code == "666") {
