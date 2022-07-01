@@ -46,6 +46,7 @@
          if (data.length) {
              for (var i = 0; i < data.length; i++) {
                  var projectInfo = data[i];
+                 console.log(projectInfo);
                  var projectName = projectInfo.projectName;
                  if (projectName.length >= 25) {
                      projectName = projectName.substring(0, 26) + "...";
@@ -55,7 +56,7 @@
                  text += "         <a class=\"panel-title\" data-toggle=\"collapse\" id=\"projcetNumber" + i + "\" data-parent=\"#panel-23802\" href=\"#panel-element-" + projectInfo.id + "\">" + projectName + "</a>";
                  text += "";
                  text += "         <div class=\"operation-box pull-right\" style=\"font-size: 16px;\">";
-                 text += "             <a class=\"pull-left release-items\" title=\"创建问卷\" onclick=\"createGetProjectInfo(" + "'" + projectInfo.createdBy+ "'" + "," + "'" + projectInfo.projectName + "'" + "," + "'" + projectInfo.creationTime + "'" + "," + "'" + projectInfo.projectContent + "'" + ")\">";
+                 text += "             <a class=\"pull-left release-items\" title=\"创建问卷\" onclick=\"createGetProjectInfo(" + "'" + projectInfo.id+ "'" + "," + "'" + projectInfo.projectName + "'" + ")\">";
                  text += "                 <i class=\"icon release-icon\"></i>创建问卷</a>";
                  text += "             <a href=\"javascript:void(0)\" id=\"projcetShow" + i + "\" class=\"pull-left copy-items\" onclick=\"getProjectInfo(" + "'" + projectInfo.projectName + "'" + "," + "'" + projectInfo.creationTime + "'" + "," + "'" + projectInfo.userName + "'" + "," + "'" + projectInfo.projectContent + "'" + ")\"><i class=\"icon copy-icon\"></i>查看</a>";
                  text += "             <a class=\"pull-left item-remind\" id=\"projcetUpdate" + i + "\" href=\"javascript:void(0)\" onclick=\"editProject(" + "'" + projectInfo.id + "'" + "," + "'" + projectInfo.projectName + "'" + "," + "'" + projectInfo.projectContent + "'" + ")\"><i class=\"icon remind-icon\"></i>编辑</a>";
@@ -155,6 +156,8 @@
 // 为了创建问卷而获取项目id、项目名称
 function createGetProjectInfo(id, name) {
     //alert("创建问卷")
+    setCookie("projectIdForCreate", id);
+    setCookie("projectName", name);
     window.location.href = "createQuestionnaire.html"
 }
 

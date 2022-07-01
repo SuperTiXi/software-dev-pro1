@@ -42,14 +42,14 @@ public class QuestionnaireController {
     }
 
     @RequestMapping(value = "/queryQuestionnaireAll",method = RequestMethod.POST, headers = "Accept=application/json")
-    public HttpResponseEntity queryQuestionnaireAll(@RequestBody QuestionnaireEntity questionnaireEntity) {
+    public HttpResponseEntity queryQuestionnaireAll(@RequestBody HashMap<String, Object> map) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
 
-        List<Map<String, Object>> maps = questionnaireService.queryQuestionnaireList(questionnaireEntity);
-        if (maps != null) {
+        Map<String, String> stringStringMap = questionnaireService.queryQuestionnaireById(map);
+        if (stringStringMap != null) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-            httpResponseEntity.setData(questionnaireEntity);
-            httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+            httpResponseEntity.setData(stringStringMap);
+            httpResponseEntity.setMessage(Constans.STATUS_MESSAGE);
         } else {
             httpResponseEntity.setCode(Constans.EXIST_CODE);
             httpResponseEntity.setData(null);
@@ -226,6 +226,7 @@ public class QuestionnaireController {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
 
         List<Map<String, Object>> maps = questionnaireService.queryQuestionnaireMould(questionnaireEntity.getDataId());
+        System.out.println(maps.get(0).get("questionName") + "--" + maps.get(0).get("id"));
         if (maps != null) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(maps);

@@ -31,10 +31,10 @@ function queryAllDataTypeSuccess(res) {
             collOpt.value = res.data[i].id;
             belongType.appendChild(collOpt);
         }
-        var options = "";
+        var options = $("#belongType");
 
         setCookie('dataId', options.val());
-        //console.log(getCookie('dataId'));
+        console.log(getCookie('dataId'));
         if (getCookie('dataId') != undefined) {
             var data1 = getCookie('dataId');
             $("#belongType").val(data1);
@@ -133,14 +133,14 @@ function queryHistoryQuestionnaireSuccess(res) {
                 '                    <div class="pic-box icon survey-icon pull-left"></div>' +
                 '                    <div class="details-wrapper pull-left">' +
                 '                        <div class="details-title">' +
-                '                            //<span class="pull-left">' + res.data[i].questionName + '</span>' +
-                '                            <span class="pull-left">页面测试数据</span>' +
+                '                            <span class="pull-left">' + res.data[i].questionName + '</span>' +
+                //'                            <span class="pull-left">页面测试数据</span>' +
                 '                        </div>' +
                 '                        <div class="details-info">丰富题型，强大逻辑</div>' +
                 '                        <div class="details-info">问卷密码，红包抽奖</div>' +
                 '                    </div>' +
                 '                    <div class="clear dotted-line--solid"></div>\n' +
-                '                    <a href="#" class="btn btn-blue-frame main__btn--new" onclick=\'importModal(' + '"' + res.data[i].id + '"' + ',' + '"' + res.data[i].questionName + '"' + ',' + '"' + res.data[i].questionContent + '"' +')\'>导入</a>' +
+                '                    <a href="#" class="btn btn-blue-frame main__btn--new" onclick=\'importModal(' + '"' + res.data[i].id + '"' + ',' + '"' + res.data[i].questionName + '"' + ',' + '"' + res.data[i].questionContent + '"' + ',' + '"' + getCookie("projectIdForCreate") + '"' + ')\'>导入</a>' +
                 '                </div>';
             $("#historyQuestion").append(historyModal_div);
         //     var historyModal_div = '   <div class="figure">' +
@@ -206,7 +206,7 @@ function queryQuestionnaireMouldSuccess(res) {
                 '                    </div>' +
                 '                    <div class="clear dotted-line--solid"></div>' +
                 '                    <a href="javascript:void(0)" class="btn btn-blue-frame editModal" onclick=\'editModal(' + '"' + res.data[i].id + '"' + ')\'>编辑</a>' +
-                '                    <a href="javascript:void(0)" class="btn btn-blue-frame main__btn--new" style="left:71%" onclick=\'importModal(' + '"' + res.data[i].id + '"' + ',' + '"' + res.data[i].questionName + '"' + ',' + '"' + res.data[i].questionContent + '"'+','+ '"'+getCookie('projectIdForCreate') +'"' + ')\'>导入</a>' +
+                '                    <a href="javascript:void(0)" class="btn btn-blue-frame main__btn--new" style="left:71%" onclick=\'importModal(' + '"' + res.data[i].id + '"' + ',' + '"' + res.data[i].questionName + '"' + ',' + '"' + res.data[i].questionContent + '"'+','+ '"'+ getCookie("projectIdForCreate") +'"' + ')\'>导入</a>' +
                 '                </div>';
             $("#typeQuestion").append(questionnaireModal_div);
             // var questionnaireModal_div = '  <div class="figure">' +
@@ -283,7 +283,7 @@ function editModal(questionId) {
 }
 
 //导入模板
-function importModal(questionId, questionName, questionContent,projectId) {
+function importModal(questionId, questionName, questionContent, projectId) {
     //debugger;
     deleteCookie('QuestionId');
     deleteCookie('isEdit');

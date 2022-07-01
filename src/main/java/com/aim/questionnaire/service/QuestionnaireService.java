@@ -7,6 +7,7 @@ import com.aim.questionnaire.dao.entity.QuestionnaireEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,10 +20,25 @@ public class QuestionnaireService {
 
     /**
      * 
-     * @param record 
+     * @param
      * @return
      */
     public int addQuestionnaire(HashMap<String, Object> map) {
+        if (map.get("startTime").equals("")) {
+            map.put("startTime", System.currentTimeMillis());
+        }
+        long startTime = (long) map.get("startTime");
+        Date date = new Date(startTime);
+        map.put("startTime", date);
+        if (map.get("endTime").equals("")) {
+            map.put("endTime", System.currentTimeMillis() + 7 * 24 * 60 * 60 * 1000);
+        }
+        long endTime = (long) map.get("endTime");
+        date = new Date(endTime);
+        map.put("endTime", date);
+        if (map.get("id") == null) {
+            map.put("id", UUIDUtil.getOneUUID());
+        }
         return questionnaireEntityMapper.addQuestionnaire(map);
     }
 
@@ -53,11 +69,11 @@ public class QuestionnaireService {
 
     /**
      * 查询项目列表
-     * @param QuestionnaireEntity
+     * @param
      * @return
      */
-    public List<Map<String,Object>> queryQuestionnaireList(QuestionnaireEntity QuestionnaireEntity){
-        return null;
+    public List<Map<String,Object>> queryQuestionnaireList(HashMap<String, Object> map) {
+        return questionnaireEntityMapper.queryQuestionnaireList(map);
     }
 
     public List<Map<String,Object>> queryQuestionnaireMould(String dataId) {
@@ -67,6 +83,10 @@ public class QuestionnaireService {
 
     public List<Map<String,Object>> queryHistoryQuestionnaire(HashMap<String, Object> map) {
         return questionnaireEntityMapper.queryHistoryQuestionnaire(map);
+    }
+
+    public Map<String,String> queryQuestionnaireById(HashMap<String, Object> map) {
+        return questionnaireEntityMapper.queryQuestionnaireById(map);
     }
 
     /**

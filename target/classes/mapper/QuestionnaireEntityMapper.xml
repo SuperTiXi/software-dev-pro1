@@ -555,8 +555,8 @@
   </select>
 
   <!--查询问卷模板-->
-  <select id="queryQuestionnaireMould" parameterType="java.lang.String" resultMap="BaseResultMap">
-    SELECT id, question_name as questionName,question_content as questionContent
+  <select id="queryQuestionnaireMould" parameterType="java.lang.String" resultType="map">
+    SELECT id, question_name as questionName,question_content as questionContent, project_id as projectId
     FROM questionnaire_info
     WHERE data_id = #{dataId,jdbcType=VARCHAR}
     AND question_stop = "0"
@@ -564,7 +564,7 @@
 
   <!--查询历史问卷-->
   <select id="queryHistoryQuestionnaire" parameterType="java.util.Map" resultType="map">
-    SELECT id,question_name as questionName,release_time AS releaseTime,answer_total AS answerTotal,question_content as questionContent
+    SELECT id,question_name as questionName,release_time AS releaseTime,answer_total AS answerTotal,question_content as questionContent, project_id as projectId
     FROM questionnaire_info
     WHERE
     question_stop = "4"
@@ -681,7 +681,7 @@
   <select id="selectAllQueStartTime" resultType="java.util.Map">
     SELECT id, start_time as startTime
     FROM questionnaire_info
-    WHERE question_stop = "5"
+    WHERE question_stop != "5"
   </select>
 
   <!--设置问卷过期-->
@@ -709,8 +709,8 @@
     SELECT id,question_name as questionName
     FROM questionnaire_info que
     WHERE created_by = #{user,jdbcType=VARCHAR}
-    AND question_stop != 4
-    AND question_stop != 0
+    AND question_stop != "4"
+    AND question_stop != "0"
   </select>
 
   <!--根据问卷id查找问卷状态-->
@@ -718,7 +718,7 @@
     SELECT count(*)
     FROM questionnaire_info que
     WHERE id = #{questionId,jdbcType=VARCHAR}
-    AND question_stop = 1
+    AND question_stop = "1"
   </select>
 
   <!--修改发送人状态-->
