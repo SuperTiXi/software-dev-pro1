@@ -178,8 +178,14 @@ function addFunctionAlty(value, row, index) {
 
 //重置密码
 function resetPassword(id) {
-    alert("重置密码")
-
+    deleteCookie("userTitle");
+    setCookie("userTitle", "重置密码");
+    if (id != '') {
+        deleteCookie("userId");
+        setCookie("userId", id);
+        console.log(id);
+    }
+    window.location.href = 'createNewUser.html';
 }
 
 // 打开创建用户页
@@ -196,7 +202,7 @@ function openCreateUserPage(id, value) {
 
 function editUserPage(id) {
     deleteCookie("userTitle");
-    setCookie("userTitle", "编辑");
+    setCookie("userTitle", "编辑用户");
     if (id != '') {
         deleteCookie("userId");
         setCookie("userId", id);
@@ -206,14 +212,23 @@ function editUserPage(id) {
 }
 // 修改用户状态（禁用、开启）
 function changeStatus(index) {
-    alert("修改用户状态")
+    var url = '/admin/modifyUserStatus';
+    var data ={
+      'id':index
+    };
+    commonAjaxPost(true,url,data,function (result) {
+        if (result.code=='666'){
+            window.location.reload();
+            alert("状态修改成功");
+
+        }
+    });
 }
 
 //删除用户
 function deleteUser(id) {
         var url = '/admin/deleteUserInfoById';
         console.log(url);
-        //alert("????");
         var data = {
             'id': id,
             "username": '',
@@ -224,9 +239,9 @@ function deleteUser(id) {
         };
         console.log(data);
         commonAjaxPost(true, url, data, function (result) {
-            window.location.href = 'login.html';
 
             if (result.code=='666'){
+                window.location.reload();
                 alert("删除成功");
             }else if (result.code=='333') {
                 window.location.href = 'login.html';
