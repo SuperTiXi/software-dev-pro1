@@ -11,23 +11,23 @@ $(function () {
     var url = '/admin/queryAllDataType';
     var da = {'parentId': '1'};
     commonAjaxPost(true, url, da, queryAllDataTypeSuccess);
-    var belongType = document.getElementById('belongType');
-    belongType.options.length = 0;
-    var collOpt = document.createElement('option');
-    collOpt.innerText = "test";
-    collOpt.value = "1";
-    belongType.appendChild(collOpt);
+    // var belongType = document.getElementById('belongType');
+    // belongType.options.length = 0;
+    // var collOpt = document.createElement('option');
+    // collOpt.innerText = "test";
+    // collOpt.value = "1";
+    //belongType.appendChild(collOpt);
 });
 
 //铺调查类型
 function queryAllDataTypeSuccess(res) {
-    //console.log(res);
+    console.log(res);
     if (res.code == "666") {
         var belongType = document.getElementById('belongType');
         belongType.options.length = 0;
         for (var i = 0; i < res.data.length; i++) {
             var collOpt = document.createElement('option');
-            collOpt.innerText = res.data[i].name;
+            collOpt.innerText = res.data[i].modelName;
             collOpt.value = res.data[i].id;
             belongType.appendChild(collOpt);
         }
@@ -118,7 +118,7 @@ function viewModal(questionId) {
 
 //查询历史模板的成功回调
 function queryHistoryQuestionnaireSuccess(res) {
-    //console.log(res);
+    console.log(res);
     if (res.code == "666") {
         $("#typeQuestion").css("display", "none");
         if (res.data.length == 0) {
@@ -170,28 +170,28 @@ function queryHistoryQuestionnaireSuccess(res) {
 
 //查询问卷模板的成功回调
 function queryQuestionnaireMouldSuccess(res) {
-    //console.log(res);
+    console.log(res);
     if (res.code == "666") {
         $("#historyQuestion").css("display", "none");
         $("#line").css("display", "block");
         $("#typeQuestion").css("display", "block");
         $('#typeQuestion').empty();
-        // var createQuestionnaireModal = '<div class="figure">\n' +
-        //     '                    <div class="pic-box icon exam-icon pull-left"></div>\n' +
-        //     '                    <div class="details-wrapper pull-left">\n' +
-        //     '                        <div class="details-title">\n' +
-        //     '                            <span class="pull-left">创建模板</span>\n' +
-        //     '                        </div>\n' +
-        //     '                        <div class="details-info">题库抽题，限时作答</div>\n' +
-        //     '                        <div class="details-info">成绩查询，自动阅卷</div>\n' +
-        //     '                    </div>\n' +
-        //     '                    <div class="clear dotted-line--solid"></div>\n' +
-        //     '                    <a href="" class="btn btn-blue-frame main__btn--new" data-toggle="modal" data-target="#createQuestModal">创建</a>\n' +
-        //     '                    <input type="checkbox"\n' +
-        //     '                           style="position:absolute;right:20px;bottom:25px;width:18px;height:18px;display:none;"/>\n' +
-        //     '                </div>';
-        // $("#typeQuestion").append(createQuestionnaireModal);
-        //console.log(res)
+        var createQuestionnaireModal = '<div class="figure">\n' +
+            '                    <div class="pic-box icon exam-icon pull-left"></div>\n' +
+            '                    <div class="details-wrapper pull-left">\n' +
+            '                        <div class="details-title">\n' +
+            '                            <span class="pull-left">创建模板</span>\n' +
+            '                        </div>\n' +
+            '                        <div class="details-info">题库抽题，限时作答</div>\n' +
+            '                        <div class="details-info">成绩查询，自动阅卷</div>\n' +
+            '                    </div>\n' +
+            '                    <div class="clear dotted-line--solid"></div>\n' +
+            '                    <a href="" class="btn btn-blue-frame main__btn--new" data-toggle="modal" data-target="#createQuestModal">创建</a>\n' +
+            '                    <input type="checkbox"\n' +
+            '                           style="position:absolute;right:20px;bottom:25px;width:18px;height:18px;display:none;"/>\n' +
+            '                </div>';
+        $("#typeQuestion").append(createQuestionnaireModal);
+        console.log(res)
         for (var i = 0; i < res.data.length; i++) {
             var questionnaireModal_div = '  <div class="figure">' +
                 '                    <i class="fa fa-close" style="font-size: 1rem; color: #ccc; position: absolute;right: 7px;top:4px"' +

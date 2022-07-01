@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,13 +24,13 @@ public class QuestionnaireController {
     private QuestionnaireEntityMapper questionnaireEntityMapper;
 
     @RequestMapping(value = "/addQuestionnaire",method = RequestMethod.POST, headers = "Accept=application/json")
-    public HttpResponseEntity addQuestionnaire(@RequestBody QuestionnaireEntity questionnaireEntity) {
+    public HttpResponseEntity addQuestionnaire(@RequestBody HashMap<String, Object> map) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
 
-        int insert = questionnaireService.insert(questionnaireEntity);
+        int insert = questionnaireService.addQuestionnaire(map);
         if (insert != 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-            httpResponseEntity.setData(questionnaireEntity);
+            httpResponseEntity.setData(map);
             httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
         } else {
             httpResponseEntity.setCode(Constans.EXIST_CODE);
@@ -203,14 +204,14 @@ public class QuestionnaireController {
     }
 
     @RequestMapping(value = "/queryHistoryQuestionnaire",method = RequestMethod.POST, headers = "Accept=application/json")
-    public HttpResponseEntity queryHistoryQuestionnaire(@RequestBody QuestionnaireEntity questionnaireEntity) {
+    public HttpResponseEntity queryHistoryQuestionnaire(@RequestBody HashMap<String, Object> map) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
 
-        int insert = questionnaireService.insert(questionnaireEntity);
-        if (insert != 0) {
+        List<Map<String, Object>> maps = questionnaireService.queryHistoryQuestionnaire(map);
+        if (maps != null) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-            httpResponseEntity.setData(questionnaireEntity);
-            httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+            httpResponseEntity.setData(maps);
+            httpResponseEntity.setMessage(Constans.STATUS_MESSAGE);
         } else {
             httpResponseEntity.setCode(Constans.EXIST_CODE);
             httpResponseEntity.setData(null);
@@ -224,11 +225,11 @@ public class QuestionnaireController {
     public HttpResponseEntity queryQuestionnaireMould(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
 
-        int insert = questionnaireService.insert(questionnaireEntity);
-        if (insert != 0) {
+        List<Map<String, Object>> maps = questionnaireService.queryQuestionnaireMould(questionnaireEntity.getDataId());
+        if (maps != null) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-            httpResponseEntity.setData(questionnaireEntity);
-            httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+            httpResponseEntity.setData(maps);
+            httpResponseEntity.setMessage(Constans.STATUS_MESSAGE);
         } else {
             httpResponseEntity.setCode(Constans.EXIST_CODE);
             httpResponseEntity.setData(null);
@@ -242,11 +243,11 @@ public class QuestionnaireController {
     public HttpResponseEntity deleteQuestionnaireById(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
 
-        int insert = questionnaireService.insert(questionnaireEntity);
-        if (insert != 0) {
+        int delete = questionnaireService.deleteQuestionnaireById(questionnaireEntity.getId());
+        if (delete != 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(questionnaireEntity);
-            httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+            httpResponseEntity.setMessage(Constans.DELETE_MESSAGE);
         } else {
             httpResponseEntity.setCode(Constans.EXIST_CODE);
             httpResponseEntity.setData(null);

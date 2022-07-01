@@ -1,11 +1,13 @@
 package com.aim.questionnaire.service;
 
 import com.aim.questionnaire.common.utils.DateUtil;
+import com.aim.questionnaire.common.utils.UUIDUtil;
 import com.aim.questionnaire.dao.QuestionnaireEntityMapper;
 import com.aim.questionnaire.dao.entity.QuestionnaireEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,8 +22,12 @@ public class QuestionnaireService {
      * @param record 
      * @return
      */
-    public int insert(QuestionnaireEntity record) {
-        return 0;
+    public int addQuestionnaire(HashMap<String, Object> map) {
+        return questionnaireEntityMapper.addQuestionnaire(map);
+    }
+
+    public int insert(QuestionnaireEntity questionnaireEntity) {
+        return questionnaireEntityMapper.insert(questionnaireEntity);
     }
 
     /**
@@ -42,7 +48,7 @@ public class QuestionnaireService {
      * @return
      */
     public int deleteQuestionnaireById(String id) {
-        return 0;
+        return questionnaireEntityMapper.deleteByPrimaryKey(id);
     }
 
     /**
@@ -52,6 +58,15 @@ public class QuestionnaireService {
      */
     public List<Map<String,Object>> queryQuestionnaireList(QuestionnaireEntity QuestionnaireEntity){
         return null;
+    }
+
+    public List<Map<String,Object>> queryQuestionnaireMould(String dataId) {
+        List<Map<String, Object>> maps = questionnaireEntityMapper.queryQuestionnaireMould(dataId);
+        return maps;
+    }
+
+    public List<Map<String,Object>> queryHistoryQuestionnaire(HashMap<String, Object> map) {
+        return questionnaireEntityMapper.queryHistoryQuestionnaire(map);
     }
 
     /**

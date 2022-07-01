@@ -213,7 +213,7 @@ function changeStatus(index) {
 function deleteUser(id) {
         var url = '/admin/deleteUserInfoById';
         console.log(url);
-        alert("????");
+        //alert("????");
         var data = {
             'id': id,
             "username": '',

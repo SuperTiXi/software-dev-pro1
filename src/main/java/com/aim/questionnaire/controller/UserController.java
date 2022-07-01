@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.aim.questionnaire.common.utils.DateUtil;
+import com.aim.questionnaire.dao.entity.ModelEntity;
+import com.aim.questionnaire.dao.entity.QuestionnaireEntity;
+import com.aim.questionnaire.service.ModelService;
 import com.aim.questionnaire.service.QuestionnaireService;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -46,7 +49,7 @@ public class UserController {
     private UserEntityMapper userEntityMapper;
 
     @Autowired
-    private QuestionnaireService questionnaireService;
+    private ModelService modelService;
    
     /**
      * 用户登录
@@ -209,10 +212,10 @@ public class UserController {
         return httpResponseEntity;
     }
     @RequestMapping(value = "/queryAllDataType",method = RequestMethod.POST, headers = "Accept=application/json")
-    public HttpResponseEntity queryAllDataType (@RequestBody UserEntity userEntity) {
+    public HttpResponseEntity queryAllDataType (@RequestBody Map<String, Object> map) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
 
-        List<Map<String, Object>> maps = questionnaireService.queryQuestionListByProjectId(userEntity.getId());
+        List<Map<String, Object>> maps = modelService.queryModelListInfo(map);
         if (maps != null) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(maps);
