@@ -96,13 +96,11 @@ public class UserService {
         String password = (String) map.get("password");
         long startTime = (long) map.get("startTime");
         long endTime = (long) map.get("stopTime");
-        System.err.println(username);
         UserEntity user = userEntityMapper.selectAllByName(username);
         if (user!=null) {
 //            用户名已存在 USER_USERNAME_MESSAGE
             return 1;
         }
-        System.err.println(id);
         UserEntity newUser = userEntityMapper.selectByPrimaryKey(id);
 
         newUser.setUsername(username);

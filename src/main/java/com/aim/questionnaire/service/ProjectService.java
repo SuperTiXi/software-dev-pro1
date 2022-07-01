@@ -31,9 +31,6 @@ public class ProjectService {
         projectEntity.setCreationDate(DateUtil.dateToSqlDate(DateUtil.getCurrentDate(),null));
         projectEntity.setLastUpdateDate(DateUtil.dateToSqlDate(DateUtil.getCurrentDate(),null));
 
-
-
-
         return projectEntityMapper.insert(projectEntity);
     }
 
@@ -52,10 +49,6 @@ public class ProjectService {
      * @return
      */
     public int deleteProjectById(ProjectEntity projectEntity) {
-
-
-
-
 
         return projectEntityMapper.deleteProjectById(projectEntity.getId());
     }
