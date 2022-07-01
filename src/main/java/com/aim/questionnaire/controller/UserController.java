@@ -173,7 +173,13 @@ public class UserController {
     @RequestMapping(value = "/modifyUserStatus",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity modifyUserStatus(@RequestBody Map<String,Object> map) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        
+
+        int flag = userService.modifyUserStatus(map);
+        if(flag==1){
+            httpResponseEntity.setCode(Constans.SUCCESS_CODE);
+            httpResponseEntity.setData(map);
+            return httpResponseEntity;
+        }
         return httpResponseEntity;
     }
     /**
@@ -185,14 +191,11 @@ public class UserController {
     public HttpResponseEntity deleteUserInfoById(@RequestBody UserEntity userEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
 
-        System.err.println(userEntity.toString());
-
         int flag = userEntityMapper.deleteUserInfoById(userEntity);
         if (flag==0) {
             httpResponseEntity.setCode(Constans.EXIST_CODE);
             return httpResponseEntity;
         }
-
         httpResponseEntity.setCode(Constans.SUCCESS_CODE);
 
         return httpResponseEntity;
@@ -223,5 +226,21 @@ public class UserController {
         }
 
         return httpResponseEntity;
+    }
+
+    /**
+     * 重置密码
+     * @return
+     */
+    @RequestMapping(value = "/resetPassword",method = RequestMethod.POST, headers = "Accept=application/json")
+    public HttpResponseEntity resetPassword(@RequestBody Map<String,Object> map){
+        HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
+        int flag = userService.resetUserPassword(map);
+        if(flag==1){
+            httpResponseEntity.setCode(Constans.SUCCESS_CODE);
+            httpResponseEntity.setData(map);
+            return httpResponseEntity;
+        }
+        return  httpResponseEntity;
     }
 }

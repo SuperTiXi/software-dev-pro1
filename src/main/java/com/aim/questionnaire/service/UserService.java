@@ -122,7 +122,18 @@ public class UserService {
      * @return
      */
     public int modifyUserStatus(Map<String, Object> map) {
-        return 0;
+        String id = (String)map.get("id");
+        UserEntity newUser = userEntityMapper.selectByPrimaryKey(id);
+        String status = newUser.getStatus();
+        if(status.equals("1")){
+            status = "0";
+        }
+        else if(status.equals("0")){
+            status = "1";
+        }
+        newUser.setStatus(status);
+        userEntityMapper.updateByPrimaryKey(newUser);
+        return 1;
     }
 
     /**
@@ -143,5 +154,14 @@ public class UserService {
     public int deleteUserInfoById(UserEntity userEntity) {
         int flag = userEntityMapper.deleteUserInfoById(userEntity);
         return flag;
+    }
+
+    public int resetUserPassword(Map<String,Object> map){
+        String id = (String) map.get("id");
+        String password = (String) map.get("password");
+        UserEntity userEntity = userEntityMapper.selectByPrimaryKey(id);
+        userEntity.setPassword(password);
+        userEntityMapper.updateByPrimaryKey(userEntity);
+        return 1;
     }
 }
