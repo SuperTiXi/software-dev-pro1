@@ -211,9 +211,9 @@ function changeStatus(index) {
 
 //删除用户
 function deleteUser(id) {
-        var url = httpRequestUrl +'/admin/deleteUserInfoById';
+        var url = '/admin/deleteUserInfoById';
         console.log(url);
-        alert("????");
+        //alert("????");
         var data = {
             'id': id,
             "username": '',
@@ -222,7 +222,7 @@ function deleteUser(id) {
             'endTime': '',
             'status': ''
         };
-    console.log(data);
+        console.log(data);
         commonAjaxPost(true, url, data, function (result) {
             window.location.href = 'login.html';
 

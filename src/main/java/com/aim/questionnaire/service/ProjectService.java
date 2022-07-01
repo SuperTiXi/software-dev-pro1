@@ -43,8 +43,7 @@ public class ProjectService {
      * @return
      */
     public int modifyProjectInfo(ProjectEntity projectEntity) {
-       
-        return 0;
+        return projectEntityMapper.updateByPrimaryKey(projectEntity);
     }
 
     /**

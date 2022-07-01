@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.aim.questionnaire.common.utils.DateUtil;
+import com.aim.questionnaire.service.QuestionnaireService;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONArray;
@@ -43,6 +44,9 @@ public class UserController {
 
     @Autowired
     private UserEntityMapper userEntityMapper;
+
+    @Autowired
+    private QuestionnaireService questionnaireService;
    
     /**
      * 用户登录
@@ -203,7 +207,22 @@ public class UserController {
     @RequestMapping(value = "/error")
     public HttpResponseEntity logout() {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        
+        return httpResponseEntity;
+    }
+    @RequestMapping(value = "/queryAllDataType",method = RequestMethod.POST, headers = "Accept=application/json")
+    public HttpResponseEntity queryAllDataType (@RequestBody UserEntity userEntity) {
+        HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
+
+        List<Map<String, Object>> maps = questionnaireService.queryQuestionListByProjectId(userEntity.getId());
+        if (maps != null) {
+            httpResponseEntity.setCode(Constans.SUCCESS_CODE);
+            httpResponseEntity.setData(maps);
+            httpResponseEntity.setMessage(Constans.STATUS_MESSAGE);
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
+        }
+
         return httpResponseEntity;
     }
 }

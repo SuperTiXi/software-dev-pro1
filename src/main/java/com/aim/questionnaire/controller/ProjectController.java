@@ -108,8 +108,16 @@ public class ProjectController {
     @RequestMapping(value = "/modifyProjectInfo",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity modifyProjectInfo(@RequestBody ProjectEntity projectEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-
-
+        int info = projectService.modifyProjectInfo(projectEntity);
+        if (info!=0) {
+            httpResponseEntity.setCode(Constans.SUCCESS_CODE);
+            httpResponseEntity.setMessage(Constans.UPDATE_MESSAGE);
+            httpResponseEntity.setData(projectEntity);
+        }else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setMessage("修改失败！");
+            httpResponseEntity.setData(null);
+        }
         return httpResponseEntity;
     }
 

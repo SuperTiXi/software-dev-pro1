@@ -39,7 +39,9 @@ values(#{id},#{userId},#{projectName},#{projectContent},#{createdBy},#{creationD
 
   </update>
   <update id="updateByPrimaryKey" parameterType="com.aim.questionnaire.dao.entity.ProjectEntity">
-
+    update project_info
+    set project_name = #{projectName}, project_content = #{projectContent}
+    where id = #{id}
   </update>
 
   <!--根据项目id删除项目-->
