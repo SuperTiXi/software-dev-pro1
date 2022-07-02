@@ -1,5 +1,6 @@
 package com.aim.questionnaire.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -102,16 +103,33 @@ public class UserController {
     @RequestMapping(value = "/addUserInfo",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity addUserInfo(@RequestBody Map<String,Object> map) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        long startTime = (long)map.get("startTime");
-        long stopTime = (long)map.get("stopTime");
 
+        Object startTime = map.get("startTime");
+        Object stopTime = map.get("stopTime");
+
+        if (startTime instanceof Long) {
+            startTime = (long) startTime;
+        } else if (startTime instanceof Double){
+            Date startTime1 = DateUtil.DoubleToDate((Double) startTime);
+            startTime = startTime1.getTime();
+        }
+
+        if (stopTime instanceof Long) {
+            stopTime = (long) stopTime;
+        } else if (stopTime instanceof Double){
+            Date stopTime1 = DateUtil.DoubleToDate((Double) stopTime);
+            stopTime = stopTime1.getTime();
+        }
+
+        map.put("startTime", startTime);
+        map.put("stopTime", stopTime);
 
         try {
             if(map.get("username").toString().length()>10||map.get("password").toString().length()>10){
                 httpResponseEntity.setCode(Constans.EXIST_CODE);
                 return httpResponseEntity;
             }
-            else if(startTime-stopTime>0){
+            else if((long)startTime-(long)stopTime>0){
                 httpResponseEntity.setCode(Constans.EXIST_CODE);
                 return httpResponseEntity;
             }

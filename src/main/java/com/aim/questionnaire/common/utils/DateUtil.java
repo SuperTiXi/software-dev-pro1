@@ -438,6 +438,15 @@ public class DateUtil {
 		return bool;
 	}
 
+	public static Date DoubleToDate(Double dVal){
+		Date oDate = new Date();
+		@SuppressWarnings("deprecation")
+		long localOffset = oDate.getTimezoneOffset() * 60000; //系统时区偏移 1900/1/1 到 1970/1/1 的 25569 天
+		oDate.setTime((long) ((dVal - 25569) * 24 * 3600 * 1000 + localOffset));
+
+		return oDate;
+	}
+
 	/**
 	 * 如果firstTs小于secondTs则返回true
 	 *

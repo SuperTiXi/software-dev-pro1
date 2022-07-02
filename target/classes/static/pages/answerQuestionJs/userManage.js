@@ -272,20 +272,25 @@ function base64 (content) {
     return window.btoa(unescape(encodeURIComponent(content)));
 }
 
+function importExcel() {
+    document.getElementById("image").click();
+}
 
 //导入表格
-function  importExcel(e) {
-    debugger;
-    var files = e.target.files;
+function fileInput(e) {
+    //debugger;
+    var files = e.files;
     var fileReader = new FileReader();
     fileReader.onload = function (ev) {
+        console.log(e);
         try {
             var data = ev.target.result,
                 workbook = XLSX.read(data, {
                     type: 'binary'
                 })// 以二进制流方式读取得到整份excel表格对象
             persons = []; // 存储获取到的数据
-        } catch (e) {
+        } catch (exp) {
+            console.log(exp);
             layer.msg('文件类型不正确');
             return;
         }
@@ -299,26 +304,24 @@ function  importExcel(e) {
                 break; // 如果只取第一张表，就取消注释这行
             }
         }
-        console.log(persons);
         if (persons.length != 0) {
-            if (!persons[0].no || !persons[0].answerNum || !persons[0].answerName || !persons[0].answerBelong || !persons[0].answerPhone || !persons[0].answerEmail) {
-                layer.msg('数据模板不正确');
-
-                return
-            }
-            _$("#userInfoTable").bootstrapTable('removeAll');
+            $("#userTable").bootstrapTable('removeAll');
             //传入参数
             for (var i = 0; i < persons.length; i++) {
-                _$("#userInfoTable").bootstrapTable('insertRow', {index: i, row: persons[i]});
-                if (i == persons.length - 1) {
-                    if (files) {
-                        document.getElementById('image').value = '';
-                    }
+                let url = "/admin/addUserInfo";
+                let data = {
+                    "username": persons[i].用户账号,
+                    "password": persons[i].用户密码,
+                    "startTime": persons[i].开始时间,
+                    "stopTime": persons[i].结束时间
                 }
+                commonAjaxPost(false, url, data)
             }
+            window.open("userManage.html")
         }
     };
     // 以二进制方式打开文件
     fileReader.readAsBinaryString(files[0]);
+    //window.location.reload();
 }
 
