@@ -31,7 +31,7 @@ function header() {
         '                <dl class="user-info pull-left">\n' +
         '                    <dt class="icon user-icon"><em></em></dt>\n' +
         '                    <dd class="spinner-list">\n' +
-        '                        <a href="javascript:void(0)" class="user-name">' +
+        '                        <a href="sendQuestionnaire.html" class="user-name">' +
         '                           <span id="ctl01_lblUserName"style="text-align:center">admin</span>' +
         '                        </a>&nbsp;&nbsp;|&nbsp;&nbsp;<a class="user-name" href="userManage.html" id="gotoUserManage">用户管理</a>\n' +
         '                    </dd>\n' +
