@@ -132,4 +132,15 @@ public class ProjectController {
           
         return httpResponseEntity;
     }
+
+    @RequestMapping(value = "/queryProjectById",method = RequestMethod.POST, headers = "Accept=application/json")
+    public HttpResponseEntity queryProjectById(@RequestBody ProjectEntity projectEntity){
+        HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
+        ProjectEntity newPro = projectService.queryProjectById(projectEntity);
+        if(newPro!=null){
+            httpResponseEntity.setCode(Constans.SUCCESS_CODE);
+            httpResponseEntity.setData(newPro);
+        }
+        return httpResponseEntity;
+    }
 }

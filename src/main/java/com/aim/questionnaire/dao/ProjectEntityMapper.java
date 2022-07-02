@@ -57,4 +57,11 @@ public interface ProjectEntityMapper {
 
     int updateByPrimaryKey(ProjectEntity record);
 
+    /**
+     * 根据Id查询项目
+     * @param projectEntity
+     * @return
+     */
+    ProjectEntity queryProjectById(ProjectEntity projectEntity);
+
 }

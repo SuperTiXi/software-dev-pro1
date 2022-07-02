@@ -73,4 +73,13 @@ public class ProjectService {
     public List<Map<String,Object>> queryAllProjectName() {
         return null;
     }
+
+    /**
+     * 根据ID查询项目
+     * @param projectEntity
+     * @return
+     */
+    public ProjectEntity queryProjectById(ProjectEntity projectEntity){
+        return projectEntityMapper.queryProjectById(projectEntity);
+    }
 }

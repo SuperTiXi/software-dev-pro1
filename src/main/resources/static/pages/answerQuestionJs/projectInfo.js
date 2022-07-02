@@ -13,7 +13,7 @@ $(function () {
 function getProjectInfo() {
     var projectId = getCookie('projectId');
 
-    var url = '/queryProjectList';
+    var url = '/queryProjectById';
     var data = {
         "id": projectId
     };
@@ -23,9 +23,10 @@ function getProjectInfo() {
 
 // 查看项目详细信息成功
 function getProjectInfoSuccess(result) {
-    // //console.log(result)
+    console.log(result)
     if (result.code == "666") {
-        var projectInfo = result.data[0];
+
+        var projectInfo = result.data;
         $("#projectNameSpan").text(projectInfo.projectName);
         $("#createTimeSpan").text(projectInfo.createDate.replace(/-/g,'/'));
         $("#adminSpan").text(projectInfo.createdBy);
