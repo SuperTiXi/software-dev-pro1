@@ -56,6 +56,10 @@ public class QuestionnaireService {
         return questionnaireEntityMapper.queryQuestionnaireByProId(questionnaireEntity);
     }
 
+    public QuestionnaireEntity queryQuestContextEnd(String id) {
+        return questionnaireEntityMapper.queryQuestContextEnd(id);
+    }
+
     /**
      * 修改问卷
      * @param questionnaireEntity

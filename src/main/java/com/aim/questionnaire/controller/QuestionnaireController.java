@@ -359,14 +359,14 @@ public class QuestionnaireController {
         return httpResponseEntity;
     }
     @RequestMapping(value = "/queryQuestContextEnd",method = RequestMethod.POST, headers = "Accept=application/json")
-    public HttpResponseEntity queryQuestContextEnd(@RequestBody QuestionnaireEntity questionnaireEntity) {
+    public HttpResponseEntity queryQuestContextEnd(@RequestBody Map<String, String> map) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
 
-        int insert = questionnaireService.insert(questionnaireEntity);
-        if (insert != 0) {
+        QuestionnaireEntity questionnaireEntity = questionnaireService.queryQuestContextEnd(map.get("id"));
+        if (questionnaireEntity != null) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(questionnaireEntity);
-            httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+            httpResponseEntity.setMessage(Constans.STATUS_MESSAGE);
         } else {
             httpResponseEntity.setCode(Constans.EXIST_CODE);
             httpResponseEntity.setData(null);
