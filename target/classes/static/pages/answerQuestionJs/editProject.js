@@ -36,7 +36,8 @@ function editProjectRight(projectNameInt, projectContentInt) {
             var data = {
                 "id": projectId,
                 "projectName": projectNameInt,
-                "projectContent": projectContentInt
+                "projectContent": projectContentInt,
+                'questionStop':"1"
 
             };
             commonAjaxPost(true, url, data, function (result) {
