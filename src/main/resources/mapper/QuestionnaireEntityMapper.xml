@@ -381,7 +381,7 @@
 
   <!--根据问卷id查询问卷的详细信息-->
   <select id="queryQuestionnaireById" parameterType="java.util.Map" resultType="java.util.Map">
-    SELECT question_name AS questionName,question_content AS questionContent,question AS questionList
+    SELECT question_name AS questionName,question_content AS questionContent,question AS questionList, id, data_id as dataId, question_stop as questionStop, end_time as endTime, start_time as startTime
     FROM questionnaire_info
     WHERE id = #{questionId,jdbcType=VARCHAR}
     <!--<if test="questionStop != null">-->

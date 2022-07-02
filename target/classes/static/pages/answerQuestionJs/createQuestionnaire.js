@@ -253,7 +253,9 @@ function createModal() {
         'startTime': "",
         'endTime': "",
         'dataId': $('#belongType').val(),
-        'questionStop': '0'
+        'questionStop': '0',
+        'projectId' : getCookie('projectIdForCreate'),
+        'createdBy' : getCookie('userName')
     };
     var url = '/addQuestionnaire';
     commonAjaxPost(true, url, da, addQuestionnaireSuccess);

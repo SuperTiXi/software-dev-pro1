@@ -4,13 +4,13 @@ import com.aim.questionnaire.common.utils.DateUtil;
 import com.aim.questionnaire.common.utils.UUIDUtil;
 import com.aim.questionnaire.dao.QuestionnaireEntityMapper;
 import com.aim.questionnaire.dao.entity.QuestionnaireEntity;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class QuestionnaireService {
@@ -44,7 +44,7 @@ public class QuestionnaireService {
 
     public int insert(QuestionnaireEntity questionnaireEntity) {
         questionnaireEntity.setId(UUIDUtil.getOneUUID());
-        return questionnaireEntityMapper.insert(questionnaireEntity);
+        return 0;
     }
 
     /**
@@ -68,6 +68,23 @@ public class QuestionnaireService {
     public int modifyQuestionnaireInfo(QuestionnaireEntity questionnaireEntity){
         return questionnaireEntityMapper.modifyQuestionnaireInfo(questionnaireEntity);
     }
+
+    public String modifyQuestionnaire(HashMap<String, Object> map) {
+        Object questionList = map.get("questionList");
+        String temp = JSONObject.toJSONString(questionList);
+        map.put("questionList", temp);
+        int flag = questionnaireEntityMapper.modifyQuestionnaire(map);
+        if (flag == 0) {
+            return null;
+        }
+        return (String) map.get("questionId");
+    }
+
+    public int addSendQuestionnaire(HashMap<String, Object> map) {
+        return questionnaireEntityMapper.addSendQuestionnaire(map);
+    }
+
+
     /**
      * 查询问卷状态
      * @param questionnaireEntity

@@ -40,11 +40,11 @@ $(function () {
             setCookie('QuestionId', qIdStr);
         }
         questionId = qIdStr;
-        var da = {'id': questionId};
+        var da = {'questionId': questionId};
     }
 
     var url = '/queryQuestionnaireAll';
-    //commonAjaxPost(true, url, da, queryQuestionnaireAllSuccess);
+    commonAjaxPost(true, url, da, queryQuestionnaireAllSuccess);
 
 });
 
@@ -967,7 +967,7 @@ function editFinish() {
             'dataId': dataId,
             'questionName': questionName,
             'questionContent': questionContent,
-            'endTime': ''
+            //'endTime': ''
         };
         var urlQ = '/modifyQuestionnaire';
         commonAjaxPost(true, urlQ, da, addQuestionnaireSuccess)
@@ -1213,7 +1213,7 @@ function queryQuestionnaireAllSuccess(res) {
             startTime = res.data.startTime;
             questionStop = res.data.questionStop;
         }
-        var question = res.data.question;
+        var question = res.data.questionList;
         setCookie('questionList', question);
         if (question != null) {
             for (var i = 0; i < question.length; i++) {
