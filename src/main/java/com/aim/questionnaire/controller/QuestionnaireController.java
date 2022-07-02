@@ -5,6 +5,7 @@ import com.aim.questionnaire.common.Constans;
 import com.aim.questionnaire.dao.QuestionnaireEntityMapper;
 import com.aim.questionnaire.dao.entity.QuestionnaireEntity;
 import com.aim.questionnaire.service.QuestionnaireService;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -96,19 +97,18 @@ public class QuestionnaireController {
     }
 
     @RequestMapping(value = "/getShortUrlForLink",method = RequestMethod.POST, headers = "Accept=application/json")
-    public HttpResponseEntity getShortUrlForLink(@RequestBody QuestionnaireEntity questionnaireEntity) {
+    public HttpResponseEntity getShortUrlForLink(@RequestBody HashMap<String, Object> map) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
+        System.err.println(map);
 
-        int insert = questionnaireService.insert(questionnaireEntity);
-        if (insert != 0) {
-            httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-            httpResponseEntity.setData(questionnaireEntity);
-            httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
-        } else {
-            httpResponseEntity.setCode(Constans.EXIST_CODE);
-            httpResponseEntity.setData(null);
-            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
-        }
+        String tinyurl = (String) map.get("link");
+        tinyurl += map.get("id");
+        tinyurl += "&l";
+        map.put("tinyurl", tinyurl);
+        JSONObject jsonObject = new JSONObject(map);
+        httpResponseEntity.setCode(Constans.SUCCESS_CODE);
+        httpResponseEntity.setData(jsonObject.toJSONString());
+        httpResponseEntity.setMessage(Constans.STATUS_MESSAGE);
 
         return httpResponseEntity;
     }

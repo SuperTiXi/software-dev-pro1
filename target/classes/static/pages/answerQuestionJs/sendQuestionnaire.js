@@ -545,7 +545,6 @@ function layOutHold(falg) {
         data = {
             "questionId": questionId,           //问卷id
             "dataId": dataId,                    //问卷类型
-            "releaseTime": "",            //发送时间
             "sendType": sendType,                //发送类别，0短信，1邮件
             "context": sendContent,                 //短信内容
             "questionEndContent": endContent,        //答卷结束语
@@ -562,7 +561,6 @@ function layOutHold(falg) {
         data = {
             "questionId": questionId,           //问卷id
             "dataId": dataId,                    //问卷类型
-            "releaseTime": "",            //发送时间
             "sendType": sendType,                //发送类别，0短信，1邮件
             "emailTitle": emailTitle,                //邮件标题
             // "context": emailContent,                 //邮件内容
@@ -573,7 +571,6 @@ function layOutHold(falg) {
     } else if (sendType == "2") {
         data = {
             "questionId": questionId,           //问卷id
-            "releaseTime": "",            //发送时间
             "sendType": sendType,                //发送类别，0短信，1邮件
             "questionEndContent": endContent,        //答卷结束语
             "sendInfo": null                     //人员信息
@@ -612,7 +609,7 @@ function getQrcode() {
     var url = '/getShortUrlForLink';
     var da = {
         'id': questionId,
-        'link': "222"
+        'link' : httpRequestUrl + "/pages/previewQuestionnaire.html?id="
     };
     // //console.log(da);
     _$.ajax({
@@ -622,7 +619,7 @@ function getQrcode() {
         dataType: "json",
         contentType: "application/json",
         success: function (res) {
-            // //console.log(res);
+            console.log(res.data);
             var resData = JSON.parse(res.data);
             shortUrl = resData.tinyurl;
             document.getElementById('ctl02_ContentPlaceHolder1_txtLink').value = shortUrl;
@@ -634,7 +631,7 @@ function getQrcode() {
             })
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            // alert(jqXHR);
+            alert(jqXHR);
         },
     });
 }
