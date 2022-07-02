@@ -79,7 +79,7 @@ public class ProjectService {
      * @param projectEntity
      * @return
      */
-    public ProjectEntity queryProjectById(ProjectEntity projectEntity){
+    public HashMap<String, Object> queryProjectById(ProjectEntity projectEntity){
         return projectEntityMapper.queryProjectById(projectEntity);
     }
 }

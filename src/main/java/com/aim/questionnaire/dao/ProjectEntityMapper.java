@@ -3,6 +3,7 @@ package com.aim.questionnaire.dao;
 import com.aim.questionnaire.dao.entity.ProjectEntity;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -62,6 +63,6 @@ public interface ProjectEntityMapper {
      * @param projectEntity
      * @return
      */
-    ProjectEntity queryProjectById(ProjectEntity projectEntity);
+    HashMap<String, Object> queryProjectById(ProjectEntity projectEntity);
 
 }

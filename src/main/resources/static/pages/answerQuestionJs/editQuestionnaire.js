@@ -5,8 +5,8 @@
 var questionName = getCookie('questionName');
 var questionContent = getCookie('questionContent');
 var questionId = getCookie('questionId');
-var endTime = getCookie('endTime').replace(/-/g, '/');
-var startTime = getCookie('creationDate').replace(/-/g, '/');
+var endTime = getCookie('endTime');
+var startTime = getCookie('creationDate');
 var dataId = getCookie('dataId');
 
 var ifEditQuestType = getCookie('ifEditQuestType');
@@ -21,13 +21,13 @@ $(function () {
     $("#questionContent").val(questionContent);
 
     queryAllDataType();
-    $("#questionStartEndTime").val(startTime + " ~ " + endTime);
+    $("#questionStartEndTime").text(startTime + " ~ " + endTime);
 
     $("#ifRemand").css('display','none');
 });
 
 
-//铺调查类型
+//设置调查类型
 function queryAllDataType() {
     var url = '/admin/queryAllDataType';
     var da = {'parentId': '1'};
@@ -38,7 +38,7 @@ function queryAllDataType() {
             belongType.options.length = 0;
             for (var i = 0; i < result.data.length; i++) {
                 var collOpt = document.createElement('option');
-                collOpt.innerText = result.data[i].name;
+                collOpt.innerText = result.data[i].modelName;
                 collOpt.value = result.data[i].id;
                 belongType.appendChild(collOpt);
                 $("#belongType").val(dataId);
@@ -90,6 +90,7 @@ function modifyQuest() {
 
 //修改问卷信息成功
 function modifyQuestSuccess(result) {
+    console.log(result);
     if (result.code == '666') {
         layer.msg('修改成功', {icon: 1});
         setTimeout(function () {

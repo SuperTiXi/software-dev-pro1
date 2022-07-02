@@ -47,6 +47,31 @@ public class QuestionnaireService {
     }
 
     /**
+     * 查询项目下所有问卷
+     * @param questionnaireEntity
+     * @return
+     */
+    public List<Map<String,Object>> queryQuestionnaireByProId(QuestionnaireEntity questionnaireEntity){
+        return questionnaireEntityMapper.queryQuestionnaireByProId(questionnaireEntity);
+    }
+
+    /**
+     * 修改问卷
+     * @param questionnaireEntity
+     * @return
+     */
+    public int modifyQuestionnaireInfo(QuestionnaireEntity questionnaireEntity){
+        return questionnaireEntityMapper.modifyQuestionnaireInfo(questionnaireEntity);
+    }
+    /**
+     * 查询问卷状态
+     * @param questionnaireEntity
+     * @return
+     */
+    public String selectQuestionnaireStatus(QuestionnaireEntity questionnaireEntity){
+        return questionnaireEntityMapper.selectQuestionnaireStatus(questionnaireEntity);
+    }
+    /**
      * 
      * @param record
      * @return

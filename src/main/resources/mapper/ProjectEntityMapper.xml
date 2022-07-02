@@ -57,7 +57,7 @@ delete  from project_info where id=#{id};
     WHERE created_by=#{createdBy} AND('${projectName}' = '' OR project_name LIKE '%${projectName}%')
   </select>
 
-  <select id="queryProjectById" parameterType="com.aim.questionnaire.dao.entity.ProjectEntity" resultType="com.aim.questionnaire.dao.entity.ProjectEntity">
+  <select id="queryProjectById" parameterType="com.aim.questionnaire.dao.entity.ProjectEntity" resultType="map">
     select id,user_id as userId,project_name as projectName,created_by as createdBy,project_content as projectContent,
            creation_date as creationDate,last_updated_by as lastUpdatedBy,last_update_date as lastUpdateDate
     from project_info

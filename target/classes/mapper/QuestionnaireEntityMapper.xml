@@ -562,9 +562,15 @@
     AND question_stop = "0"
   </select>
 
+  <!--根据项目ID查询问卷-->
+  <select id="queryQuestionnaireByProId" parameterType="com.aim.questionnaire.dao.entity.QuestionnaireEntity" resultType="map">
+    SELECT id,question_name as questionName,release_time AS releaseTime, project_id as projectId,question_content AS questionContent
+    FROM questionnaire_info
+    WHERE project_id = #{projectId}
+  </select>
   <!--查询历史问卷-->
   <select id="queryHistoryQuestionnaire" parameterType="java.util.Map" resultType="map">
-    SELECT id,question_name as questionName,release_time AS releaseTime,answer_total AS answerTotal,question_content as questionContent, project_id as projectId
+    SELECT id,question_name as questionName,release_time AS releaseTime,answer_total AS answerTotal,question_content as questionContent, project_id as projectId,end_time AS endTime,creation_date AS creationDate, data_id AS dataId
     FROM questionnaire_info
     WHERE
     question_stop = "4"
@@ -575,7 +581,12 @@
       AND data_id = #{dataId,jdbcType = VARCHAR}
     </if>
   </select>
-
+  <!--根据id查询问卷状态-->
+  <select id="selectQuestionnaireStatus" parameterType="com.aim.questionnaire.dao.entity.QuestionnaireEntity" resultType="java.lang.String">
+    SELECT question_stop AS questionStop
+    FROM questionnaire_info
+    WHERE id = #{id}
+  </select>
   <!--根据id修改问卷的全部信息-->
   <update id="modifyQuestionnaire" parameterType="map">
     update questionnaire_info
