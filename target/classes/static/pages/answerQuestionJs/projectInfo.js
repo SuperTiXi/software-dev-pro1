@@ -40,7 +40,7 @@ function getProjectInfoSuccess(result) {
             console.log(result);
             if(result.code =="666") {
                 $("#questTableBody").empty();
-                if (result.data == null) {
+                if (result.data.length==0) {
                     var text = "";
                     text += "<tr>";
                     text += "    <td style=\"text-align: center;color: #d9534f\" colspan=\"4\">暂无调查问卷</td>";
@@ -104,12 +104,9 @@ function editQuest(id, name, content, endTime, creationDate, dataId) {
         //     }
         // }
         if (result.code == "666") {
-            // if (result.data == "1") {
-            //     if ($("#operationAll" + m + n).children("a:first-child").text() == '开启') {
-            //         judgeIfChangeStatus(m, n);
-            //     }
-            //     layer.msg('问卷运行中，不可修改', {icon: 2});
-            // } else
+            if (result.data == "1") {
+                layer.msg('问卷运行中，不可修改', {icon: 2});
+            } else{
             if (result.data != "5") {
                 layer.msg('问卷已发布，不可修改', {icon: 2});
             } else {
@@ -133,7 +130,7 @@ function editQuest(id, name, content, endTime, creationDate, dataId) {
                 setCookie("creationDate", creationDate);
                 setCookie("dataId", dataId);
                 window.location.href = 'editQuestionnaire.html'
-                // }
+                }
             }
         }
         else if (result.code == "333") {

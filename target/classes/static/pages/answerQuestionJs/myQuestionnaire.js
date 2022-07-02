@@ -41,12 +41,12 @@
 
          $("#panel-23802").empty();
          //遍历多个项目
-         var text = "";
 
+         console.log(result);
          if (data.length) {
              for (var i = 0; i < data.length; i++) {
+                 var text = "";
                  var projectInfo = data[i];
-                 console.log(projectInfo);
                  var projectName = projectInfo.projectName;
                  if (projectName.length >= 25) {
                      projectName = projectName.substring(0, 26) + "...";
@@ -76,21 +76,34 @@
                  text += "             <!--Anim pariatur cliche...-->";
                  text += "";
                  text += "";
+                 var url = "/queryQuestionnaireByProId"
+                 var dat = {
+                     'projectId':projectInfo.id
+                 };
+                 commonAjaxPost(false,url,dat,function (result) {
+                     console.log(result);
+                     if(result.code=="666"){
+                         if(result.data.length===0){
+                             text += "<span style=\"color:#d9534f;font-size:16px\">暂无调查问卷或问卷已过期</span>";
 
-
-
-                 text += "<span style=\"color:#d9534f;font-size:16px\">暂无调查问卷或问卷已过期</span>";
-
-
-
+                         }
+                         else {
+                             for(var j= 0;j<result.data.length;j++){
+                                 text += "<span style=\"color:#000000;font-size:16px\">"+result.data[j].questionName+"</span>";
+                                 text += "<br>";
+                             }
+                         }
+                     }
+                 });
 
                  text += "         </div>";
                  text += "     </div>";
                  text += " </div>";
                  // }
+                 $("#panel-23802").append(text);
              }
              //for循环结束
-             $("#panel-23802").append(text);
+
 
          } else {
              layer.msg("暂无符合条件的项目", {icon: 0})
