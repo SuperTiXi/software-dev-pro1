@@ -251,4 +251,74 @@ function deleteUser(id) {
             }
         });
 }
+//导出为Excel
+function exportExcel(tableId,fileName) {
+    var table = document.getElementById(tableId);
+    var excelContent = table.innerHTML;
+    var excelFile = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:x='urn:schemas-microsoft-com:office:excel' xmlns='http://www.w3.org/TR/REC-html40'>";
+    excelFile += "<head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head>";
+    excelFile += "<body><table>";
+    excelFile += excelContent;
+    excelFile += "</table></body>";
+    excelFile += "</html>";
+    var link = "data:application/vnd.ms-excel;base64," + base64(excelFile);
+    var a = document.createElement("a");
+    a.download = fileName+".xlsx";
+    a.href = link;
+    a.click();
+}
+
+function base64 (content) {
+    return window.btoa(unescape(encodeURIComponent(content)));
+}
+
+
+//导入表格
+function  importExcel(e) {
+    debugger;
+    var files = e.target.files;
+    var fileReader = new FileReader();
+    fileReader.onload = function (ev) {
+        try {
+            var data = ev.target.result,
+                workbook = XLSX.read(data, {
+                    type: 'binary'
+                })// 以二进制流方式读取得到整份excel表格对象
+            persons = []; // 存储获取到的数据
+        } catch (e) {
+            layer.msg('文件类型不正确');
+            return;
+        }
+        // 表格的表格范围，可用于判断表头是否数量是否正确
+        var fromTo = '';
+        // 遍历每张表读取
+        for (var sheet in workbook.Sheets) {
+            if (workbook.Sheets.hasOwnProperty(sheet)) {
+                fromTo = workbook.Sheets[sheet]['!ref'];
+                persons = persons.concat(XLSX.utils.sheet_to_json(workbook.Sheets[sheet]));
+                break; // 如果只取第一张表，就取消注释这行
+            }
+        }
+        console.log(persons);
+        if (persons.length != 0) {
+            if (!persons[0].no || !persons[0].answerNum || !persons[0].answerName || !persons[0].answerBelong || !persons[0].answerPhone || !persons[0].answerEmail) {
+                layer.msg('数据模板不正确');
+
+                return
+            }
+            _$("#userInfoTable").bootstrapTable('removeAll');
+            //传入参数
+            for (var i = 0; i < persons.length; i++) {
+                _$("#userInfoTable").bootstrapTable('insertRow', {index: i, row: persons[i]});
+                if (i == persons.length - 1) {
+                    if (files) {
+                        document.getElementById('image').value = '';
+                    }
+                }
+            }
+        }
+    };
+    // 以二进制方式打开文件
+    fileReader.readAsBinaryString(files[0]);
+}
 

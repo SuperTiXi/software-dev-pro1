@@ -56,6 +56,7 @@ function getProjectInfoSuccess(result) {
                     text += "    <td>" + questionnaire.releaseTime + "</td>";
                     text += "<td>";
                     text += "    <a href=\"javascript:void(0)\" id=\"projcetShow" + i + "\" class=\"pull-left copy-items\" onclick=\"editQuest(" + "'" + questionnaire.id + "'" + "," + "'" + questionnaire.questionName + "'" + "," + "'" + questionnaire.questionContent + "'" + "," + "'" + questionnaire.endTime+ "'" + "," + "'" + questionnaire.creationDate + "'" + "," + "'" + questionnaire.dataId + "'" + ")\"><i class=\"icon copy-icon\"></i>修改</a>";
+                    text += "    <a href=\"javascript:void(0)\" id=\"projcetShow" + i + "\" class=\"pull-left copy-items\" onclick=\"releaseQuest(" + "'" + questionnaire.id + "'" + "," + "'" + questionnaire.questionName + "'" + "," + "'" + questionnaire.questionContent + "'" + "," + "'" + questionnaire.endTime+ "'" + "," + "'" + questionnaire.creationDate + "'" + "," + "'" + questionnaire.dataId + "'" + ")\"><i class=\"icon copy-icon\"></i>发布</a>";
                     text += "</td>";
                     text += "</tr>";
                     $("#questTableBody").append(text);
@@ -144,3 +145,17 @@ function editQuest(id, name, content, endTime, creationDate, dataId) {
     });
 }
 
+//发布问卷
+function releaseQuest(id, name, content, endTime, creationDate, dataId){
+    deleteCookie("questionId");
+    deleteCookie("questionName");
+    deleteCookie("questionContent");
+    deleteCookie("endTime");
+    setCookie("questionId", id);
+    setCookie("questionName", name);
+    setCookie("questionContent", content);
+    setCookie("endTime", endTime);
+    setCookie("creationDate", creationDate);
+    setCookie("dataId", dataId);
+    window.location.href = 'sendQuestionnaire.html'
+}

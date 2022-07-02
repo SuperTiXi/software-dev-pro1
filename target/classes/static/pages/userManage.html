@@ -200,13 +200,16 @@
                                class="btn btn-default btn-lg pull-left create-btn" onclick="openCreateUserPage('','创建用户')">
                                 <i class="icon create-icon"></i>创建用户</a>
                             <a href="javascript:void(0)" title="创建新用户"
-                               class="btn btn-default btn-lg pull-left create-btn" onclick="">
+                               class="btn btn-default btn-lg pull-left create-btn" onclick=importExcel()>
                                 批量导入
                             </a>
+                            <input type="file" id="image" name="image"
+                                   style="display:none;"/>
                             <a href="javascript:void(0)" title="创建新用户"
-                               class="btn btn-default btn-lg pull-left create-btn" onclick="">
+                               class="btn btn-default btn-lg pull-left create-btn" onclick=exportExcel("userTable","userTable")>
                                 导出Excel
                             </a>
+
                             <div id="ctl01_ContentPlaceHolder1_divInfo" class="create-search pull-left"
                                  style="margin-right:10px;">
                                 <input name="ctl01$ContentPlaceHolder1$txtName" type="text" placeholder="请输入用户名进行搜索..."
