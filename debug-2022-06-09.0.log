@@ -1,0 +1,246 @@
+2022-06-09 15:28:07.297 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-06-09 15:28:07.297 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-06-09 15:28:07.330 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-06-09 15:28:07.330 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-06-09 15:28:07.407 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-06-09 15:28:07.407 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-06-09 15:28:07.592 [http-nio-8085-exec-7] DEBUG c.a.q.d.P.queryProjectList -==>  Preparing: SELECT id,user_id as userId,project_name as projectName,created_by as createdBy,project_content as projectContent, creation_date as creationDate,last_updated_by as lastUpdatedBy,last_update_date as lastUpdateDate FROM project_info
+2022-06-09 15:28:07.592 [http-nio-8085-exec-7] DEBUG c.a.q.d.P.queryProjectList -==>  Preparing: SELECT id,user_id as userId,project_name as projectName,created_by as createdBy,project_content as projectContent, creation_date as creationDate,last_updated_by as lastUpdatedBy,last_update_date as lastUpdateDate FROM project_info
+2022-06-09 15:28:07.593 [http-nio-8085-exec-7] DEBUG c.a.q.d.P.queryProjectList -==> Parameters: 
+2022-06-09 15:28:07.593 [http-nio-8085-exec-7] DEBUG c.a.q.d.P.queryProjectList -==> Parameters: 
+2022-06-09 15:28:07.648 [http-nio-8085-exec-7] DEBUG c.a.q.d.P.queryProjectList -<==      Total: 2
+2022-06-09 15:28:07.648 [http-nio-8085-exec-7] DEBUG c.a.q.d.P.queryProjectList -<==      Total: 2
+2022-06-09 15:28:13.830 [http-nio-8085-exec-8] DEBUG c.a.q.d.P.queryProjectList -==>  Preparing: SELECT id,user_id as userId,project_name as projectName,created_by as createdBy,project_content as projectContent, creation_date as creationDate,last_updated_by as lastUpdatedBy,last_update_date as lastUpdateDate FROM project_info
+2022-06-09 15:28:13.830 [http-nio-8085-exec-8] DEBUG c.a.q.d.P.queryProjectList -==>  Preparing: SELECT id,user_id as userId,project_name as projectName,created_by as createdBy,project_content as projectContent, creation_date as creationDate,last_updated_by as lastUpdatedBy,last_update_date as lastUpdateDate FROM project_info
+2022-06-09 15:28:13.831 [http-nio-8085-exec-8] DEBUG c.a.q.d.P.queryProjectList -==> Parameters: 
+2022-06-09 15:28:13.831 [http-nio-8085-exec-8] DEBUG c.a.q.d.P.queryProjectList -==> Parameters: 
+2022-06-09 15:28:13.880 [http-nio-8085-exec-8] DEBUG c.a.q.d.P.queryProjectList -<==      Total: 2
+2022-06-09 15:28:13.880 [http-nio-8085-exec-8] DEBUG c.a.q.d.P.queryProjectList -<==      Total: 2
+2022-06-09 15:28:14.673 [http-nio-8085-exec-1] DEBUG c.a.q.d.P.queryProjectList -==>  Preparing: SELECT id,user_id as userId,project_name as projectName,created_by as createdBy,project_content as projectContent, creation_date as creationDate,last_updated_by as lastUpdatedBy,last_update_date as lastUpdateDate FROM project_info
+2022-06-09 15:28:14.673 [http-nio-8085-exec-1] DEBUG c.a.q.d.P.queryProjectList -==>  Preparing: SELECT id,user_id as userId,project_name as projectName,created_by as createdBy,project_content as projectContent, creation_date as creationDate,last_updated_by as lastUpdatedBy,last_update_date as lastUpdateDate FROM project_info
+2022-06-09 15:28:14.674 [http-nio-8085-exec-1] DEBUG c.a.q.d.P.queryProjectList -==> Parameters: 
+2022-06-09 15:28:14.674 [http-nio-8085-exec-1] DEBUG c.a.q.d.P.queryProjectList -==> Parameters: 
+2022-06-09 15:28:14.722 [http-nio-8085-exec-1] DEBUG c.a.q.d.P.queryProjectList -<==      Total: 2
+2022-06-09 15:28:14.722 [http-nio-8085-exec-1] DEBUG c.a.q.d.P.queryProjectList -<==      Total: 2
+2022-06-09 15:28:22.579 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:28:22.579 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:28:22.580 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:28:22.580 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:28:22.630 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:28:22.630 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:28:22.632 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:28:22.632 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:28:22.632 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:28:22.632 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:28:22.685 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:28:22.685 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:28:24.673 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:28:24.673 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:28:24.674 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:28:24.674 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:28:24.722 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:28:24.722 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:28:24.723 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10,10
+2022-06-09 15:28:24.723 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10,10
+2022-06-09 15:28:24.724 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:28:24.724 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:28:24.772 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList -<==      Total: 2
+2022-06-09 15:28:24.772 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList -<==      Total: 2
+2022-06-09 15:28:26.093 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:28:26.093 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:28:26.094 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:28:26.094 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:28:26.142 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:28:26.142 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:28:26.143 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:28:26.143 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:28:26.143 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:28:26.143 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:28:26.193 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:28:26.193 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:28:35.881 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '1212' = '' OR username LIKE '%1212%'
+2022-06-09 15:28:35.881 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '1212' = '' OR username LIKE '%1212%'
+2022-06-09 15:28:35.882 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:28:35.882 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:28:35.931 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:28:35.931 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:28:35.932 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '1212' = '' OR username LIKE '%1212%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:28:35.932 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '1212' = '' OR username LIKE '%1212%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:28:35.932 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:28:35.932 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:28:35.981 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.queryUserList -<==      Total: 1
+2022-06-09 15:28:35.981 [http-nio-8085-exec-7] DEBUG c.a.q.d.U.queryUserList -<==      Total: 1
+2022-06-09 15:28:38.977 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:28:38.977 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:28:38.978 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:28:38.978 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:28:39.027 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:28:39.027 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:28:39.028 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:28:39.028 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:28:39.028 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:28:39.028 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:28:39.079 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:28:39.079 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:28:52.941 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:28:52.941 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:28:52.942 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:28:52.942 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:28:52.990 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:28:52.990 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:28:52.991 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:28:52.991 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:28:52.993 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:28:52.993 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:28:53.045 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:28:53.045 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:29:08.016 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:29:08.016 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:29:08.017 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:29:08.017 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:29:08.064 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:29:08.064 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:29:08.065 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:29:08.065 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:29:08.065 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:29:08.065 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:29:08.115 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:29:08.115 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:29:15.532 [http-nio-8085-exec-4] DEBUG c.a.q.d.P.queryProjectList -==>  Preparing: SELECT id,user_id as userId,project_name as projectName,created_by as createdBy,project_content as projectContent, creation_date as creationDate,last_updated_by as lastUpdatedBy,last_update_date as lastUpdateDate FROM project_info
+2022-06-09 15:29:15.532 [http-nio-8085-exec-4] DEBUG c.a.q.d.P.queryProjectList -==>  Preparing: SELECT id,user_id as userId,project_name as projectName,created_by as createdBy,project_content as projectContent, creation_date as creationDate,last_updated_by as lastUpdatedBy,last_update_date as lastUpdateDate FROM project_info
+2022-06-09 15:29:15.533 [http-nio-8085-exec-4] DEBUG c.a.q.d.P.queryProjectList -==> Parameters: 
+2022-06-09 15:29:15.533 [http-nio-8085-exec-4] DEBUG c.a.q.d.P.queryProjectList -==> Parameters: 
+2022-06-09 15:29:15.582 [http-nio-8085-exec-4] DEBUG c.a.q.d.P.queryProjectList -<==      Total: 2
+2022-06-09 15:29:15.582 [http-nio-8085-exec-4] DEBUG c.a.q.d.P.queryProjectList -<==      Total: 2
+2022-06-09 15:29:58.831 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-06-09 15:29:58.831 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.selectUserInfo -==>  Preparing: SELECT id,username,`password`,status FROM user_info WHERE username = ? AND status = "1"
+2022-06-09 15:29:58.832 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-06-09 15:29:58.832 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.selectUserInfo -==> Parameters: admin(String)
+2022-06-09 15:29:58.881 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-06-09 15:29:58.881 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.selectUserInfo -<==      Total: 1
+2022-06-09 15:29:58.992 [http-nio-8085-exec-6] DEBUG c.a.q.d.P.queryProjectList -==>  Preparing: SELECT id,user_id as userId,project_name as projectName,created_by as createdBy,project_content as projectContent, creation_date as creationDate,last_updated_by as lastUpdatedBy,last_update_date as lastUpdateDate FROM project_info
+2022-06-09 15:29:58.992 [http-nio-8085-exec-6] DEBUG c.a.q.d.P.queryProjectList -==>  Preparing: SELECT id,user_id as userId,project_name as projectName,created_by as createdBy,project_content as projectContent, creation_date as creationDate,last_updated_by as lastUpdatedBy,last_update_date as lastUpdateDate FROM project_info
+2022-06-09 15:29:58.994 [http-nio-8085-exec-6] DEBUG c.a.q.d.P.queryProjectList -==> Parameters: 
+2022-06-09 15:29:58.994 [http-nio-8085-exec-6] DEBUG c.a.q.d.P.queryProjectList -==> Parameters: 
+2022-06-09 15:29:59.043 [http-nio-8085-exec-6] DEBUG c.a.q.d.P.queryProjectList -<==      Total: 2
+2022-06-09 15:29:59.043 [http-nio-8085-exec-6] DEBUG c.a.q.d.P.queryProjectList -<==      Total: 2
+2022-06-09 15:30:06.524 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:30:06.524 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:30:06.526 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:30:06.526 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:30:06.575 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:30:06.575 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:30:06.576 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:30:06.576 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:30:06.577 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:30:06.577 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:30:06.628 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:30:06.628 [http-nio-8085-exec-9] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:30:12.720 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryExistUser -==>  Preparing: SELECT count(1) FROM user_info where username = ?
+2022-06-09 15:30:12.720 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryExistUser -==>  Preparing: SELECT count(1) FROM user_info where username = ?
+2022-06-09 15:30:12.721 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryExistUser -==> Parameters: 111(String)
+2022-06-09 15:30:12.721 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryExistUser -==> Parameters: 111(String)
+2022-06-09 15:30:12.771 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryExistUser -<==      Total: 1
+2022-06-09 15:30:12.771 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryExistUser -<==      Total: 1
+2022-06-09 15:30:12.781 [http-nio-8085-exec-8] DEBUG c.a.q.d.UserEntityMapper.addUserInfo -==>  Preparing: insert into user_info ( id, username, password, start_time, stop_time, status, created_by, creation_date, last_updated_by, last_update_date ) values ( ?, ?, ?, ?, ?, 1, ?, ?, ?, ? )
+2022-06-09 15:30:12.781 [http-nio-8085-exec-8] DEBUG c.a.q.d.UserEntityMapper.addUserInfo -==>  Preparing: insert into user_info ( id, username, password, start_time, stop_time, status, created_by, creation_date, last_updated_by, last_update_date ) values ( ?, ?, ?, ?, ?, 1, ?, ?, ?, ? )
+2022-06-09 15:30:12.787 [http-nio-8085-exec-8] DEBUG c.a.q.d.UserEntityMapper.addUserInfo -==> Parameters: 59cbe27387b342aba389634bc419bdda(String), 111(String), 111(String), 2022-06-09 15:30:08.0(Timestamp), 2022-07-09 15:30:08.0(Timestamp), admin(String), 2022-06-09 15:30:12.0(Timestamp), admin(String), 2022-06-09 15:30:12.0(Timestamp)
+2022-06-09 15:30:12.787 [http-nio-8085-exec-8] DEBUG c.a.q.d.UserEntityMapper.addUserInfo -==> Parameters: 59cbe27387b342aba389634bc419bdda(String), 111(String), 111(String), 2022-06-09 15:30:08.0(Timestamp), 2022-07-09 15:30:08.0(Timestamp), admin(String), 2022-06-09 15:30:12.0(Timestamp), admin(String), 2022-06-09 15:30:12.0(Timestamp)
+2022-06-09 15:30:12.884 [http-nio-8085-exec-8] DEBUG c.a.q.d.UserEntityMapper.addUserInfo -<==    Updates: 1
+2022-06-09 15:30:12.884 [http-nio-8085-exec-8] DEBUG c.a.q.d.UserEntityMapper.addUserInfo -<==    Updates: 1
+2022-06-09 15:30:14.071 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:30:14.071 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:30:14.072 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:30:14.072 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:30:14.128 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:30:14.128 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:30:14.129 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:30:14.129 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:30:14.130 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:30:14.130 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:30:14.180 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:30:14.180 [http-nio-8085-exec-1] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:30:19.907 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectAllByName -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate from user_info where username = ?
+2022-06-09 15:30:19.907 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectAllByName -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate from user_info where username = ?
+2022-06-09 15:30:19.908 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectAllByName -==> Parameters: 1111(String)
+2022-06-09 15:30:19.908 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectAllByName -==> Parameters: 1111(String)
+2022-06-09 15:30:19.956 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectAllByName -<==      Total: 0
+2022-06-09 15:30:19.956 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectAllByName -<==      Total: 0
+2022-06-09 15:30:19.958 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectByPrimaryKey -==>  Preparing: select id, username, password, start_time, stop_time, status, created_by, creation_date, last_updated_by, last_update_date, role_id from user_info where id = ?
+2022-06-09 15:30:19.958 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectByPrimaryKey -==>  Preparing: select id, username, password, start_time, stop_time, status, created_by, creation_date, last_updated_by, last_update_date, role_id from user_info where id = ?
+2022-06-09 15:30:19.959 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectByPrimaryKey -==> Parameters: cf73e3af46e84f75b1c95fa53e65da20(String)
+2022-06-09 15:30:19.959 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectByPrimaryKey -==> Parameters: cf73e3af46e84f75b1c95fa53e65da20(String)
+2022-06-09 15:30:20.012 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectByPrimaryKey -<==      Total: 1
+2022-06-09 15:30:20.012 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.selectByPrimaryKey -<==      Total: 1
+2022-06-09 15:30:20.012 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.updateByPrimaryKey -==>  Preparing: update user_info set id=?, username=?,password=?,start_time=?,stop_time=?,status=? where id =?
+2022-06-09 15:30:20.012 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.updateByPrimaryKey -==>  Preparing: update user_info set id=?, username=?,password=?,start_time=?,stop_time=?,status=? where id =?
+2022-06-09 15:30:20.014 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.updateByPrimaryKey -==> Parameters: cf73e3af46e84f75b1c95fa53e65da20(String), 1111(String), 1111(String), 2022-06-09 15:30:16.0(Timestamp), 2022-07-09 15:30:16.0(Timestamp), 1(String), cf73e3af46e84f75b1c95fa53e65da20(String)
+2022-06-09 15:30:20.014 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.updateByPrimaryKey -==> Parameters: cf73e3af46e84f75b1c95fa53e65da20(String), 1111(String), 1111(String), 2022-06-09 15:30:16.0(Timestamp), 2022-07-09 15:30:16.0(Timestamp), 1(String), cf73e3af46e84f75b1c95fa53e65da20(String)
+2022-06-09 15:30:20.114 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.updateByPrimaryKey -<==    Updates: 1
+2022-06-09 15:30:20.114 [http-nio-8085-exec-3] DEBUG c.a.q.d.U.updateByPrimaryKey -<==    Updates: 1
+2022-06-09 15:30:21.274 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:30:21.274 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:30:21.275 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:30:21.275 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:30:21.323 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:30:21.323 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:30:21.324 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:30:21.324 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:30:21.324 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:30:21.324 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:30:21.373 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:30:21.373 [http-nio-8085-exec-4] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:30:22.723 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:30:22.723 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:30:22.724 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:30:22.724 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:30:22.772 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:30:22.772 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:30:22.773 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10,10
+2022-06-09 15:30:22.773 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10,10
+2022-06-09 15:30:22.773 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:30:22.773 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:30:22.822 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList -<==      Total: 3
+2022-06-09 15:30:22.822 [http-nio-8085-exec-5] DEBUG c.a.q.d.U.queryUserList -<==      Total: 3
+2022-06-09 15:30:24.084 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:30:24.084 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:30:24.085 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:30:24.085 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:30:24.134 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:30:24.134 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:30:24.135 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:30:24.135 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:30:24.135 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:30:24.135 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:30:24.185 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:30:24.185 [http-nio-8085-exec-6] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:30:48.221 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:30:48.221 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:30:48.222 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:30:48.222 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:30:48.269 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:30:48.269 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:30:48.270 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:30:48.270 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:30:48.270 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:30:48.270 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:30:48.320 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:30:48.320 [http-nio-8085-exec-10] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:30:50.159 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:30:50.159 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList_COUNT -==>  Preparing: SELECT count(0) FROM user_info WHERE '' = '' OR username LIKE '%%'
+2022-06-09 15:30:50.160 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:30:50.160 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList_COUNT -==> Parameters: 
+2022-06-09 15:30:50.208 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:30:50.208 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList_COUNT -<==      Total: 1
+2022-06-09 15:30:50.209 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:30:50.209 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList -==>  Preparing: SELECT id,username,password,start_time as startTime,stop_time as endTime,status,creation_date as creationDate FROM user_info WHERE '' = '' OR username LIKE '%%' ORDER BY creationDate DESC LIMIT 10
+2022-06-09 15:30:50.209 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:30:50.209 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList -==> Parameters: 
+2022-06-09 15:30:50.260 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:30:50.260 [http-nio-8085-exec-8] DEBUG c.a.q.d.U.queryUserList -<==      Total: 10
+2022-06-09 15:30:51.469 [http-nio-8085-exec-1] DEBUG c.a.q.d.P.queryProjectList -==>  Preparing: SELECT id,user_id as userId,project_name as projectName,created_by as createdBy,project_content as projectContent, creation_date as creationDate,last_updated_by as lastUpdatedBy,last_update_date as lastUpdateDate FROM project_info
+2022-06-09 15:30:51.469 [http-nio-8085-exec-1] DEBUG c.a.q.d.P.queryProjectList -==>  Preparing: SELECT id,user_id as userId,project_name as projectName,created_by as createdBy,project_content as projectContent, creation_date as creationDate,last_updated_by as lastUpdatedBy,last_update_date as lastUpdateDate FROM project_info
+2022-06-09 15:30:51.470 [http-nio-8085-exec-1] DEBUG c.a.q.d.P.queryProjectList -==> Parameters: 
+2022-06-09 15:30:51.470 [http-nio-8085-exec-1] DEBUG c.a.q.d.P.queryProjectList -==> Parameters: 
+2022-06-09 15:30:51.518 [http-nio-8085-exec-1] DEBUG c.a.q.d.P.queryProjectList -<==      Total: 2
+2022-06-09 15:30:51.518 [http-nio-8085-exec-1] DEBUG c.a.q.d.P.queryProjectList -<==      Total: 2
