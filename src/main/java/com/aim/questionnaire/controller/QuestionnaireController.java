@@ -243,7 +243,6 @@ public class QuestionnaireController {
     @RequestMapping(value = "/deleteQuestionnaireById",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity deleteQuestionnaireById(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-
         int delete = questionnaireService.deleteQuestionnaireById(questionnaireEntity.getId());
         if (delete != 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
@@ -295,13 +294,12 @@ public class QuestionnaireController {
     }
 
     @RequestMapping(value = "/queryQuestionnaireList",method = RequestMethod.POST, headers = "Accept=application/json")
-    public HttpResponseEntity queryQuestionnaireList(@RequestBody QuestionnaireEntity questionnaireEntity) {
+    public HttpResponseEntity queryQuestionnaireList(@RequestBody HashMap<String, Object> questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-
-        int insert = questionnaireService.insert(questionnaireEntity);
-        if (insert != 0) {
+        List<Map<String, Object>> maps = questionnaireService.queryQuestionnaireList(questionnaireEntity);
+        if (maps!=null&&maps.size()!= 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-            httpResponseEntity.setData(questionnaireEntity);
+            httpResponseEntity.setData(maps);
             httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
         } else {
             httpResponseEntity.setCode(Constans.EXIST_CODE);
@@ -326,13 +324,13 @@ public class QuestionnaireController {
         return httpResponseEntity;
     }
     @RequestMapping(value = "/modifyHistoryQuestionnaireStatus",method = RequestMethod.POST, headers = "Accept=application/json")
-    public HttpResponseEntity modifyHistoryQuestionnaireStatus(@RequestBody QuestionnaireEntity questionnaireEntity) {
+    public HttpResponseEntity modifyHistoryQuestionnaireStatus(@RequestBody HashMap<String,Object> map) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
 
-        int insert = questionnaireService.insert(questionnaireEntity);
-        if (insert != 0) {
+        int effect = questionnaireService.modifyHistoryQuestionnaireStatus(map);
+        if (effect != 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-            httpResponseEntity.setData(questionnaireEntity);
+            httpResponseEntity.setData(effect);
             httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
         } else {
             httpResponseEntity.setCode(Constans.EXIST_CODE);

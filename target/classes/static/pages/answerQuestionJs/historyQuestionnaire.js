@@ -13,10 +13,10 @@ $(function () {
 
 function getHistoryQuest() {
     var keyWord = $("#keyWord").val();
-
     var url = '/queryQuestionnaireList';
     var data = {
-        "questionName": keyWord
+        "questionName": keyWord,
+        "user":"admin"
     };
     commonAjaxPost(true, url, data, getHistoryQuestSuccess);
 
@@ -121,7 +121,7 @@ function recoverRunBtn() {
             if (result.code == '666') {
                 $("#recoverRunModal").modal('hide');
                 layer.msg("问卷已恢复运行，请在我的项目中查看", {icon: 1});
-                getHistoryQuest();
+                window.location.reload();
             } else if (result.code == "333") {
                 layer.msg(result.message, {icon: 2});
                 setTimeout(function () {

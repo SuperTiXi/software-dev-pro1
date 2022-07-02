@@ -13,10 +13,11 @@ $(function () {
 
 function getHistoryQuest() {
     var keyWord = $("#keyWord").val();
-
     var url = '/queryQuestionnaireList';
     var data = {
-        "questionName": keyWord
+        "questionName": keyWord,
+        //到时候改一下
+        "user":"admin"
     };
     commonAjaxPost(true, url, data, getHistoryQuestSuccess);
 

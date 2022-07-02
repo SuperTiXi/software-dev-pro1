@@ -43,6 +43,7 @@ public class QuestionnaireService {
     }
 
     public int insert(QuestionnaireEntity questionnaireEntity) {
+        questionnaireEntity.setId(UUIDUtil.getOneUUID());
         return questionnaireEntityMapper.insert(questionnaireEntity);
     }
 
@@ -133,5 +134,9 @@ public class QuestionnaireService {
     public List<Map<String, Object>> queryQuestionListByProjectId(String id) {
         List<Map<String, Object>> maps = questionnaireEntityMapper.queryQuestionListByProjectId(id);
         return maps;
+    }
+
+    public int modifyHistoryQuestionnaireStatus(HashMap<String, Object> map) {
+        return questionnaireEntityMapper.modifyHistoryQuestionnaireStatus(map);
     }
 }

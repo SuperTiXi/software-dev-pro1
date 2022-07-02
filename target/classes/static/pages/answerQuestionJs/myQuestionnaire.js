@@ -76,7 +76,14 @@
                  text += "             <!--Anim pariatur cliche...-->";
                  text += "";
                  text += "";
+
+
+
                  text += "<span style=\"color:#d9534f;font-size:16px\">暂无调查问卷或问卷已过期</span>";
+
+
+
+
                  text += "         </div>";
                  text += "     </div>";
                  text += " </div>";
