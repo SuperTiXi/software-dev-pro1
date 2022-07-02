@@ -27,8 +27,8 @@
   </delete>
   <insert id="insert" parameterType="com.aim.questionnaire.dao.entity.ProjectEntity">
 
-insert into project_info
-values(#{id},#{userId},#{projectName},#{projectContent},#{createdBy},#{creationDate},#{lastUpdatedBy},#{lastUpdateDate});
+    insert into project_info
+    values(#{id},#{userId},#{projectName},#{projectContent},#{createdBy},#{creationDate},#{lastUpdatedBy},#{lastUpdateDate});
 
 
   </insert>
