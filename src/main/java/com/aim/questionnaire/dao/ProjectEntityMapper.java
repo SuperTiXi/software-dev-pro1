@@ -3,6 +3,7 @@ package com.aim.questionnaire.dao;
 import com.aim.questionnaire.dao.entity.ProjectEntity;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -56,5 +57,12 @@ public interface ProjectEntityMapper {
     List<Map<String,Object>> queryAllProjectName();
 
     int updateByPrimaryKey(ProjectEntity record);
+
+    /**
+     * 根据Id查询项目
+     * @param projectEntity
+     * @return
+     */
+    HashMap<String, Object> queryProjectById(ProjectEntity projectEntity);
 
 }

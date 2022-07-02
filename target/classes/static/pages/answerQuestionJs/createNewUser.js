@@ -12,12 +12,12 @@ $(function () {
     changeTitle();
 });
 
-// 判断是编辑还是创建
+// 判断是编辑还是创建还是重置密码
 function changeTitle() {
     var userTitle = getCookie("userTitle");
-    var text = "<h1 class=\"hd-title pull-left\">" + userTitle + "用户</h1>";
+    var text = "<h1 class=\"hd-title pull-left\">" + userTitle + "</h1>";
     $("#userTitle").append(text);
-    if (userTitle == '创建') {
+    if (userTitle == '创建用户') {
         $("#userName").removeAttr("disabled");
         $('#createBtn').val('立即创建');
         $('#noPassword').css('display', 'block');
@@ -70,11 +70,10 @@ function changeTitle() {
             }
         })
 
-    } else {
+    } else if(userTitle=="编辑用户"){
         // $("#userName").attr("disabled","disabled");
         $("#userName").removeAttr('disabled');
         $('#createBtn').val('保存修改');
-        $('#noPassword').css('display', 'none');
         $("#noPassword").css('display','');
         var userId = getCookie('userId');
         console.log(userId)
@@ -157,6 +156,29 @@ function changeTitle() {
                     }
                 })
             }
+        });
+    }
+    else{
+        $('#noNumber').css("display",'none');
+        $('#noTime').css('display', 'none');
+        $('#createBtn').val('重置密码');
+
+        $('#createBtn').click(function () {
+            var userId = getCookie('userId');
+            var password = $('#password').val();
+            var url = '/admin/resetPassword';
+            var data = {
+                'id':userId,
+                'password':password
+            };
+            commonAjaxPost(true,url,data,function (result) {
+                if (result.code == "666") {
+                    layer.msg("密码修改成功", {icon: 1});
+                    setTimeout(function () {
+                        window.location.href = 'userManage.html';
+                    }, 1000);
+                }
+            })
         });
     }
 

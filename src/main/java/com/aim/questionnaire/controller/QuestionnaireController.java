@@ -11,239 +11,388 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @RestController
 public class QuestionnaireController {
     @Autowired
     private QuestionnaireService questionnaireService;
 
     @Autowired
-    QuestionnaireEntityMapper questionnaireEntityMapper;
+    private QuestionnaireEntityMapper questionnaireEntityMapper;
 
     @RequestMapping(value = "/addQuestionnaire",method = RequestMethod.POST, headers = "Accept=application/json")
-    public HttpResponseEntity addQuestionnaire(@RequestBody QuestionnaireEntity questionnaireEntity) {
+    public HttpResponseEntity addQuestionnaire(@RequestBody HashMap<String, Object> map) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int insert = questionnaireService.insertSelective(questionnaireEntity);
+
+        int insert = questionnaireService.addQuestionnaire(map);
         if (insert != 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-            httpResponseEntity.setData(questionnaireEntity);
+            httpResponseEntity.setData(map);
             httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
         }
+
         return httpResponseEntity;
     }
 
     @RequestMapping(value = "/queryQuestionnaireAll",method = RequestMethod.POST, headers = "Accept=application/json")
-    public HttpResponseEntity queryQuestionnaireAll(@RequestBody QuestionnaireEntity questionnaireEntity) {
+    public HttpResponseEntity queryQuestionnaireAll(@RequestBody HashMap<String, Object> map) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int insert = questionnaireService.insertSelective(questionnaireEntity);
-        if (insert != 0) {
+
+        Map<String, String> stringStringMap = questionnaireService.queryQuestionnaireById(map);
+        if (stringStringMap != null) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-            httpResponseEntity.setData(questionnaireEntity);
-            httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+            httpResponseEntity.setData(stringStringMap);
+            httpResponseEntity.setMessage(Constans.STATUS_MESSAGE);
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
         }
+
         return httpResponseEntity;
     }
 
     @RequestMapping(value = "/queryQuestionnaireById",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity queryQuestionnaireById(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int insert = questionnaireService.insertSelective(questionnaireEntity);
-        if (insert != 0) {
+
+        Map<String, Object> stringObjectMap = questionnaireService.queryQuestionnaireInfoById(questionnaireEntity.getId());
+        if (stringObjectMap != null) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(questionnaireEntity);
             httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
         }
+
         return httpResponseEntity;
     }
 
     @RequestMapping(value = "/addAnswerQuestionnaire",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity addAnswerQuestionnaire(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int insert = questionnaireService.insertSelective(questionnaireEntity);
+
+        int insert = questionnaireService.insert(questionnaireEntity);
         if (insert != 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(questionnaireEntity);
             httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
         }
+
         return httpResponseEntity;
     }
 
     @RequestMapping(value = "/getShortUrlForLink",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity getShortUrlForLink(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int insert = questionnaireService.insertSelective(questionnaireEntity);
+
+        int insert = questionnaireService.insert(questionnaireEntity);
         if (insert != 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(questionnaireEntity);
             httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
         }
+
         return httpResponseEntity;
     }
 
     @RequestMapping(value = "/selectCorrelation",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity selectCorrelation(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int insert = questionnaireService.insertSelective(questionnaireEntity);
+
+        int insert = questionnaireService.insert(questionnaireEntity);
         if (insert != 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(questionnaireEntity);
             httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
         }
+
         return httpResponseEntity;
     }
 
     @RequestMapping(value = "/selectCheckedCorrelation",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity selectCheckedCorrelation(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int insert = questionnaireService.insertSelective(questionnaireEntity);
+
+        int insert = questionnaireService.insert(questionnaireEntity);
         if (insert != 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(questionnaireEntity);
             httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
         }
+
         return httpResponseEntity;
     }
 
     @RequestMapping(value = "/queryAllQuestionnaireByCreated",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity queryAllQuestionnaireByCreated(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int insert = questionnaireService.insertSelective(questionnaireEntity);
+
+        int insert = questionnaireService.insert(questionnaireEntity);
         if (insert != 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(questionnaireEntity);
             httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
         }
+
         return httpResponseEntity;
     }
 
     @RequestMapping(value = "/queryQuestionnaireCount",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity queryQuestionnaireCount(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int insert = questionnaireService.insertSelective(questionnaireEntity);
+
+        int insert = questionnaireService.insert(questionnaireEntity);
         if (insert != 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(questionnaireEntity);
             httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
         }
+
         return httpResponseEntity;
     }
 
     @RequestMapping(value = "/queryQuestionnaireAboutSchool",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity queryQuestionnaireAboutSchool(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int insert = questionnaireService.insertSelective(questionnaireEntity);
+
+        int insert = questionnaireService.insert(questionnaireEntity);
         if (insert != 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(questionnaireEntity);
             httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
         }
+
         return httpResponseEntity;
     }
 
     @RequestMapping(value = "/queryHistoryQuestionnaire",method = RequestMethod.POST, headers = "Accept=application/json")
-    public HttpResponseEntity queryHistoryQuestionnaire(@RequestBody QuestionnaireEntity questionnaireEntity) {
+    public HttpResponseEntity queryHistoryQuestionnaire(@RequestBody HashMap<String, Object> map) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int insert = questionnaireService.insertSelective(questionnaireEntity);
-        if (insert != 0) {
+
+        List<Map<String, Object>> maps = questionnaireService.queryHistoryQuestionnaire(map);
+        if (maps != null) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-            httpResponseEntity.setData(questionnaireEntity);
-            httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+            httpResponseEntity.setData(maps);
+            httpResponseEntity.setMessage(Constans.STATUS_MESSAGE);
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
         }
+
         return httpResponseEntity;
     }
 
     @RequestMapping(value = "/queryQuestionnaireMould",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity queryQuestionnaireMould(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int insert = questionnaireService.insertSelective(questionnaireEntity);
-        if (insert != 0) {
+
+        List<Map<String, Object>> maps = questionnaireService.queryQuestionnaireMould(questionnaireEntity.getDataId());
+        System.out.println(maps.get(0).get("questionName") + "--" + maps.get(0).get("id"));
+        if (maps != null) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-            httpResponseEntity.setData(questionnaireEntity);
-            httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+            httpResponseEntity.setData(maps);
+            httpResponseEntity.setMessage(Constans.STATUS_MESSAGE);
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
         }
+
         return httpResponseEntity;
     }
 
     @RequestMapping(value = "/deleteQuestionnaireById",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity deleteQuestionnaireById(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int insert = questionnaireService.insertSelective(questionnaireEntity);
-        if (insert != 0) {
+
+        int delete = questionnaireService.deleteQuestionnaireById(questionnaireEntity.getId());
+        if (delete != 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(questionnaireEntity);
-            httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+            httpResponseEntity.setMessage(Constans.DELETE_MESSAGE);
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
         }
+
         return httpResponseEntity;
     }
 
     @RequestMapping(value = "/modifyQuestionnaire",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity modifyQuestionnaire(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int insert = questionnaireService.insertSelective(questionnaireEntity);
+
+        int insert = questionnaireService.insert(questionnaireEntity);
         if (insert != 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(questionnaireEntity);
             httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
         }
+
         return httpResponseEntity;
     }
 
     @RequestMapping(value = "/modifyQuestionnaireInfo",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity modifyQuestionnaireInfo(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int insert = questionnaireService.insertSelective(questionnaireEntity);
+
+        int insert = questionnaireService.modifyQuestionnaireInfo(questionnaireEntity);
         if (insert != 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(questionnaireEntity);
             httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
         }
+
         return httpResponseEntity;
     }
 
     @RequestMapping(value = "/queryQuestionnaireList",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity queryQuestionnaireList(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int insert = questionnaireService.insertSelective(questionnaireEntity);
+
+        int insert = questionnaireService.insert(questionnaireEntity);
         if (insert != 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(questionnaireEntity);
             httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
         }
+
         return httpResponseEntity;
     }
 
+
+    @RequestMapping(value = "/queryQuestionnaireByProId",method = RequestMethod.POST, headers = "Accept=application/json")
+    public HttpResponseEntity queryQuestionnaireByProId(@RequestBody QuestionnaireEntity questionnaireEntity) {
+        HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
+
+        List<Map<String,Object>> map = questionnaireService.queryQuestionnaireByProId(questionnaireEntity);
+        if (map.size()!= 0) {
+            httpResponseEntity.setCode(Constans.SUCCESS_CODE);
+            httpResponseEntity.setData(map);
+            httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+        }
+        return httpResponseEntity;
+    }
     @RequestMapping(value = "/modifyHistoryQuestionnaireStatus",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity modifyHistoryQuestionnaireStatus(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int insert = questionnaireService.insertSelective(questionnaireEntity);
+
+        int insert = questionnaireService.insert(questionnaireEntity);
         if (insert != 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(questionnaireEntity);
             httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
         }
+
         return httpResponseEntity;
     }
 
+    @RequestMapping(value = "/selectQuestionnaireStatus",method = RequestMethod.POST, headers = "Accept=application/json")
+    public HttpResponseEntity selectQuestionnaireStatus(@RequestBody QuestionnaireEntity questionnaireEntity) {
+        HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
+
+        String insert = questionnaireService.selectQuestionnaireStatus(questionnaireEntity);
+        if (insert!=null) {
+            httpResponseEntity.setCode(Constans.SUCCESS_CODE);
+            httpResponseEntity.setData(insert);
+            httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
+        }
+
+        return httpResponseEntity;
+    }
     @RequestMapping(value = "/queryQuestContextEnd",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity queryQuestContextEnd(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int insert = questionnaireService.insertSelective(questionnaireEntity);
+
+        int insert = questionnaireService.insert(questionnaireEntity);
         if (insert != 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(questionnaireEntity);
             httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
         }
+
         return httpResponseEntity;
     }
 
     @RequestMapping(value = "/addSendQuestionnaire",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity addSendQuestionnaire(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        int insert = questionnaireService.insertSelective(questionnaireEntity);
+
+        int insert = questionnaireService.insert(questionnaireEntity);
         if (insert != 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(questionnaireEntity);
             httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
-        } 
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
+        }
+
         return httpResponseEntity;
     }
 }

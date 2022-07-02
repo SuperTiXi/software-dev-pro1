@@ -159,6 +159,13 @@ public interface QuestionnaireEntityMapper {
     List<Map<String,Object>> queryHistoryQuestionnaire(HashMap<String, Object> map);
 
     /**
+     * 查询项目下所有问卷
+     * @param questionnaireEntity
+     * @return
+     */
+    List<Map<String,Object>> queryQuestionnaireByProId(QuestionnaireEntity questionnaireEntity);
+
+    /**
      * 根据id修改问卷的全部信息
      * @param map
      * @return
@@ -250,7 +257,12 @@ public interface QuestionnaireEntityMapper {
      */
     int queryQuestionnaireStatus(String questionId);
 
-
+    /**
+     * 查询问卷状态
+     * @param questionnaireEntity
+     * @return
+     */
+    String selectQuestionnaireStatus(QuestionnaireEntity questionnaireEntity);
     void updateSendStudentStatusInfo(List<Map<String, Object>> sendList);
 
     void updateSendGraduateStatusInfo(List<Map<String, Object>> sendList);

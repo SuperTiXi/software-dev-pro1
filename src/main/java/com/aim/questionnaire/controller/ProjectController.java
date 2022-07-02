@@ -2,6 +2,7 @@ package com.aim.questionnaire.controller;
 
 import com.aim.questionnaire.beans.HttpResponseEntity;
 import com.aim.questionnaire.common.Constans;
+import com.aim.questionnaire.common.utils.DateUtil;
 import com.aim.questionnaire.dao.ProjectEntityMapper;
 import com.aim.questionnaire.dao.entity.ProjectEntity;
 import com.aim.questionnaire.service.ProjectService;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -86,7 +89,6 @@ public class ProjectController {
             httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(projectEntity);
-
         }
         else {
             httpResponseEntity.setMessage("创建失败！！");
@@ -131,6 +133,18 @@ public class ProjectController {
     public HttpResponseEntity queryAllProjectName() {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
 
+        return httpResponseEntity;
+    }
+
+    @RequestMapping(value = "/queryProjectById",method = RequestMethod.POST, headers = "Accept=application/json")
+    public HttpResponseEntity queryProjectById(@RequestBody ProjectEntity projectEntity){
+        HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
+        HashMap<String, Object> map = projectService.queryProjectById(projectEntity);
+
+        if(map!=null){
+            httpResponseEntity.setCode(Constans.SUCCESS_CODE);
+            httpResponseEntity.setData(map);
+        }
         return httpResponseEntity;
     }
 }

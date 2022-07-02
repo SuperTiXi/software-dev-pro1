@@ -71,7 +71,7 @@ function quickCreate() {
     var chooseTimeRange = $("#config-demo").val();
     var nowTimeInput = chooseTimeRange.split(' ~ ')[0];
     var questionendTime = chooseTimeRange.split(' ~ ')[1];
-    debugger
+    //debugger
     var urlObj = GetRequest();
 
     deleteCookie('questionInfo');
@@ -90,7 +90,7 @@ function quickCreate() {
     }
     //console.log(getCookie('projectIdForCreate'));
     //console.log(getCookie('QuestionId'));
-    debugger;
+    //debugger;
     //直接创建问卷
     if (urlObj.i == "") {
         var da = {
@@ -100,8 +100,9 @@ function quickCreate() {
             'endTime': dateChange(questionendTime),
             'questionStop': '5',
             'dataId': getCookie('dataId'),
-            // 'projectId': getCookie('projectIdForCreate')
+            'projectId': getCookie('projectIdForCreate')
         };
+        console.log(getCookie("dataId"));
         if (getCookie('TProjectId') != undefined) {    //创建问卷
             da.projectId = getCookie('TProjectId');
             da.questionStop = '5';
@@ -111,7 +112,7 @@ function quickCreate() {
     } else {
         //导入问卷
         var url = '/queryQuestionnaireAll';
-        var da = {'id': getCookie('QuestionId')};
+        var da = {'questionId': getCookie('QuestionId')};
         commonAjaxPost(true, url, da, queryQuestionnaireAllSuccess);
         da1 = {
             'questionName': questionName,
@@ -120,7 +121,7 @@ function quickCreate() {
             'endTime': dateChange(questionendTime),
             'questionStop': '5',
             'dataId': getCookie('dataId'),
-            'projectId': getCookie('TProjectId')
+            'projectId': getCookie('projectIdForCreate')
         };
         // deleteCookie('QuestionId');
     }

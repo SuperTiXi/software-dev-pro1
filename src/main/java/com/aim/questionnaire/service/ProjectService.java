@@ -31,9 +31,6 @@ public class ProjectService {
         projectEntity.setCreationDate(DateUtil.dateToSqlDate(DateUtil.getCurrentDate(),null));
         projectEntity.setLastUpdateDate(DateUtil.dateToSqlDate(DateUtil.getCurrentDate(),null));
 
-
-
-
         return projectEntityMapper.insert(projectEntity);
     }
 
@@ -52,10 +49,6 @@ public class ProjectService {
      * @return
      */
     public int deleteProjectById(ProjectEntity projectEntity) {
-
-
-
-
 
         return projectEntityMapper.deleteProjectById(projectEntity.getId());
     }
@@ -79,5 +72,14 @@ public class ProjectService {
      */
     public List<Map<String,Object>> queryAllProjectName() {
         return null;
+    }
+
+    /**
+     * 根据ID查询项目
+     * @param projectEntity
+     * @return
+     */
+    public HashMap<String, Object> queryProjectById(ProjectEntity projectEntity){
+        return projectEntityMapper.queryProjectById(projectEntity);
     }
 }
