@@ -8,6 +8,7 @@ $(function () {
     isLoginFun();
     header();
     $("#ctl01_lblUserName").text(getCookie('userName'));
+    console.log(getCookie('userName'));
     createDtePicker();
     $("#ctl01_ContentPlaceHolder1_spanTitle").html("创建调查问卷");
     if (getCookie('TQuestionName') != undefined && getCookie('TQuestionContent') != undefined) {
@@ -100,7 +101,8 @@ function quickCreate() {
             'endTime': dateChange(questionendTime),
             'questionStop': '5',
             'dataId': getCookie('dataId'),
-            'projectId': getCookie('projectIdForCreate')
+            'projectId': getCookie('projectIdForCreate'),
+            'createdBy' : getCookie('userName')
         };
         console.log(getCookie("dataId"));
         if (getCookie('TProjectId') != undefined) {    //创建问卷
@@ -121,7 +123,8 @@ function quickCreate() {
             'endTime': dateChange(questionendTime),
             'questionStop': '5',
             'dataId': getCookie('dataId'),
-            'projectId': getCookie('projectIdForCreate')
+            'projectId': getCookie('projectIdForCreate'),
+            'createdBy' : getCookie('userName')
         };
         // deleteCookie('QuestionId');
     }

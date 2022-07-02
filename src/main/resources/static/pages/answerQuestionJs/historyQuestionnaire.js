@@ -17,7 +17,7 @@ function getHistoryQuest() {
     var data = {
         "questionName": keyWord,
         //到时候改一下
-        "user":"admin"
+        "user" : getCookie('userName')
     };
     commonAjaxPost(true, url, data, getHistoryQuestSuccess);
 
