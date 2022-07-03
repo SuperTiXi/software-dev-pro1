@@ -1213,7 +1213,7 @@ function queryQuestionnaireAllSuccess(res) {
             startTime = res.data.startTime;
             questionStop = res.data.questionStop;
         }
-        var question = res.data.questionList;
+        var question = JSON.parse(res.data.questionList);
         setCookie('questionList', question);
         if (question != null) {
             for (var i = 0; i < question.length; i++) {

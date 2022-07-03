@@ -45,7 +45,7 @@ public class QuestionnaireController {
     @RequestMapping(value = "/queryQuestionnaireAll",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity queryQuestionnaireAll(@RequestBody HashMap<String, Object> map) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        System.out.println(map);
+        //System.out.println(map);
         Map<String, String> stringStringMap = questionnaireService.queryQuestionnaireById(map);
         if (stringStringMap != null) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
@@ -82,16 +82,9 @@ public class QuestionnaireController {
     public HttpResponseEntity addAnswerQuestionnaire(@RequestBody QuestionnaireEntity questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
 
-        int insert = questionnaireService.insert(questionnaireEntity);
-        if (insert != 0) {
-            httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-            httpResponseEntity.setData(questionnaireEntity);
-            httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
-        } else {
-            httpResponseEntity.setCode(Constans.EXIST_CODE);
-            httpResponseEntity.setData(null);
-            httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
-        }
+        httpResponseEntity.setCode(Constans.SUCCESS_CODE);
+        httpResponseEntity.setData("提交成功");
+        httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
 
         return httpResponseEntity;
     }
@@ -296,11 +289,11 @@ public class QuestionnaireController {
     public HttpResponseEntity queryQuestionnaireList(@RequestBody HashMap<String, Object> questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
         List<Map<String, Object>> maps = questionnaireService.queryQuestionnaireList(questionnaireEntity);
-        if (maps!=null&&maps.size()!= 0) {
+        if (maps != null) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(maps);
-            httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
-        } else {
+            httpResponseEntity.setMessage(Constans.STATUS_MESSAGE);
+        } else{
             httpResponseEntity.setCode(Constans.EXIST_CODE);
             httpResponseEntity.setData(null);
             httpResponseEntity.setMessage(Constans.EXIST_MESSAGE);
@@ -315,11 +308,10 @@ public class QuestionnaireController {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
 
         List<Map<String,Object>> map = questionnaireService.queryQuestionnaireByProId(questionnaireEntity);
-        if (map.size()!= 0) {
-            httpResponseEntity.setCode(Constans.SUCCESS_CODE);
-            httpResponseEntity.setData(map);
-            httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
-        }
+        httpResponseEntity.setCode(Constans.SUCCESS_CODE);
+        httpResponseEntity.setData(map);
+        httpResponseEntity.setMessage(Constans.ADD_MESSAGE);
+
         return httpResponseEntity;
     }
     @RequestMapping(value = "/modifyHistoryQuestionnaireStatus",method = RequestMethod.POST, headers = "Accept=application/json")

@@ -152,7 +152,7 @@ function releaseQuest(id, name, content, endTime, creationDate, dataId){
     deleteCookie("questionContent");
     deleteCookie("endTime");
     setCookie("questionId", id);
-    setCookie("questionName", name);
+    setCookie("nameOfQuestionnaire", name);
     setCookie("questionContent", content);
     setCookie("endTime", endTime);
     setCookie("creationDate", creationDate);
