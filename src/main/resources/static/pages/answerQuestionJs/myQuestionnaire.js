@@ -89,7 +89,9 @@
                          }
                          else {
                              for(var j= 0;j<result.data.length;j++){
-                                 text += "<span style=\"color:#000000;font-size:16px\">"+result.data[j].questionName+"</span>";
+                                 text += "<span style=\"color:#000000;font-size:16px\">"+"问卷名："+result.data[j].questionName+"</span>";
+                                 text += "<span style=\"color:#000000;font-size:16px\">"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"</span>";
+                                 text += "<span style=\"color:#000000;font-size:16px\">"+"问卷描述："+result.data[j].questionContent+"</span>";
                                  text += "<br>";
                              }
                          }

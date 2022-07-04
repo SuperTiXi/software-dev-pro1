@@ -28,6 +28,14 @@ public class QuestionnaireController {
     public HttpResponseEntity addQuestionnaire(@RequestBody HashMap<String, Object> map) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
 
+        List<Map<String, Object>> maps = questionnaireEntityMapper.queryQuestionnaireList(map);
+        for (Map<String, Object> map1 : maps) {
+            if(map1.get("questionName").equals(map.get("questionName"))){
+                httpResponseEntity.setMessage("问卷名重复");
+                httpResponseEntity.setCode("111");
+                return httpResponseEntity;
+            }
+        }
         int insert = questionnaireService.addQuestionnaire(map);
         if (insert != 0) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
@@ -249,6 +257,22 @@ public class QuestionnaireController {
         return httpResponseEntity;
     }
 
+    @RequestMapping(value = "/deleteQuestionnaire",method = RequestMethod.POST, headers = "Accept=application/json")
+    public HttpResponseEntity deleteQuestionnaire(@RequestBody QuestionnaireEntity questionnaireEntity) {
+        HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
+        int delete = questionnaireService.deleteQuestionnaire(questionnaireEntity.getId());
+        if (delete != 0) {
+            httpResponseEntity.setCode(Constans.SUCCESS_CODE);
+            httpResponseEntity.setData(questionnaireEntity);
+            httpResponseEntity.setMessage("删除成功");
+        } else {
+            httpResponseEntity.setCode(Constans.EXIST_CODE);
+            httpResponseEntity.setData(null);
+            httpResponseEntity.setMessage("删除失败");
+        }
+
+        return httpResponseEntity;
+    }
     @RequestMapping(value = "/modifyQuestionnaire",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity modifyQuestionnaire(@RequestBody HashMap<String, Object> map) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
@@ -285,10 +309,10 @@ public class QuestionnaireController {
         return httpResponseEntity;
     }
 
-    @RequestMapping(value = "/queryQuestionnaireList",method = RequestMethod.POST, headers = "Accept=application/json")
-    public HttpResponseEntity queryQuestionnaireList(@RequestBody HashMap<String, Object> questionnaireEntity) {
+    @RequestMapping(value = "/queryHistoryQuestionnaireList",method = RequestMethod.POST, headers = "Accept=application/json")
+    public HttpResponseEntity queryHistoryQuestionnaireList(@RequestBody HashMap<String, Object> questionnaireEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
-        List<Map<String, Object>> maps = questionnaireService.queryQuestionnaireList(questionnaireEntity);
+        List<Map<String, Object>> maps = questionnaireService.queryHistoryQuestionnaire(questionnaireEntity);
         if (maps != null) {
             httpResponseEntity.setCode(Constans.SUCCESS_CODE);
             httpResponseEntity.setData(maps);

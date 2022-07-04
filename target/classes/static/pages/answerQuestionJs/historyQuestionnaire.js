@@ -13,7 +13,7 @@ $(function () {
 
 function getHistoryQuest() {
     var keyWord = $("#keyWord").val();
-    var url = '/queryQuestionnaireList';
+    var url = '/queryHistoryQuestionnaire';
     var data = {
         "questionName": keyWord,
         //到时候改一下

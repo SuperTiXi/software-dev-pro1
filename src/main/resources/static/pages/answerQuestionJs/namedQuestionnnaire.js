@@ -104,7 +104,7 @@ function quickCreate() {
             'projectId': getCookie('projectIdForCreate'),
             'createdBy' : getCookie('userName')
         };
-        console.log(getCookie("dataId"));
+
         if (getCookie('TProjectId') != undefined) {    //创建问卷
             da.projectId = getCookie('TProjectId');
             da.questionStop = '5';

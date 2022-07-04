@@ -396,4 +396,6 @@ public interface QuestionnaireEntityMapper {
     int selectByName(String questionName);
 
     int selectByNameId(@Param("questionName") String questionName,@Param("id") String id);
+
+    int updateQuestionStop(String id);
 }

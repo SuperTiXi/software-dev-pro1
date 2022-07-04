@@ -174,4 +174,8 @@ public class QuestionnaireService {
         map.put("endTime", date);
         return questionnaireEntityMapper.modifyHistoryQuestionnaireStatus(map);
     }
+
+    public int deleteQuestionnaire(String id) {
+        return questionnaireEntityMapper.updateQuestionStop(id);
+    }
 }

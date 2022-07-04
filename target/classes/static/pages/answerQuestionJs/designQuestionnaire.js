@@ -959,6 +959,7 @@ function editFinish() {
         //获取问卷说明
         var questionContent = $('#pater_desc').html();
         var da = '';
+        var url = '';
         da = {
             'questionList': questionList,
             'questionTitle': questionTitles, //所有的题目

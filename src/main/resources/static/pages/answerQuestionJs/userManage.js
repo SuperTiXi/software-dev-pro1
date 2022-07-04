@@ -263,7 +263,7 @@ function exportExcel(tableId,fileName) {
     excelFile += "</html>";
     var link = "data:application/vnd.ms-excel;base64," + base64(excelFile);
     var a = document.createElement("a");
-    a.download = fileName+".xlsx";
+    a.download = fileName+".xls";
     a.href = link;
     a.click();
 }

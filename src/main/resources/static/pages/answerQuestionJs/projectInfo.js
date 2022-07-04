@@ -57,6 +57,7 @@ function getProjectInfoSuccess(result) {
                     text += "<td>";
                     text += "    <a href=\"javascript:void(0)\" id=\"projcetShow" + i + "\" class=\"pull-left copy-items\" onclick=\"editQuest(" + "'" + questionnaire.id + "'" + "," + "'" + questionnaire.questionName + "'" + "," + "'" + questionnaire.questionContent + "'" + "," + "'" + questionnaire.endTime+ "'" + "," + "'" + questionnaire.creationDate + "'" + "," + "'" + questionnaire.dataId + "'" + ")\"><i class=\"icon copy-icon\"></i>修改</a>";
                     text += "    <a href=\"javascript:void(0)\" id=\"projcetShow" + i + "\" class=\"pull-left copy-items\" onclick=\"releaseQuest(" + "'" + questionnaire.id + "'" + "," + "'" + questionnaire.questionName + "'" + "," + "'" + questionnaire.questionContent + "'" + "," + "'" + questionnaire.endTime+ "'" + "," + "'" + questionnaire.creationDate + "'" + "," + "'" + questionnaire.dataId + "'" + ")\"><i class=\"icon copy-icon\"></i>发布</a>";
+                    text += "    <a href=\"javascript:void(0)\" id=\"projcetShow" + i + "\" class=\"pull-left copy-items\" onclick=\"deleteQuest(" + "'" + questionnaire.id + "'" + ")\"><i class=\"icon copy-icon\"></i>删除</a>";
                     text += "</td>";
                     text += "</tr>";
                     $("#questTableBody").append(text);
@@ -79,6 +80,22 @@ function getProjectInfoSuccess(result) {
     } else {
         layer.msg(result.message, {icon: 2})
     }
+}
+//
+function deleteQuest(id){
+    var url = "/deleteQuestionnaire"
+    var data = {
+        "id": id
+    };
+ commonAjaxPost(true,url,data,function (result) {
+     if(result.code ="666"){
+         alert(result.message);
+         window.location.reload();
+     }
+     else {
+         layer.msg(result.message, {icon: 2});
+     }
+ })
 }
 
 //编辑问卷

@@ -82,6 +82,14 @@ public class ProjectController {
     @RequestMapping(value = "/addProjectInfo",method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity addProjectInfo(@RequestBody ProjectEntity projectEntity) {
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
+        List<Map<String, Object>> maps = projectEntityMapper.queryProjectList(projectEntity);
+        for (Map<String, Object> map : maps) {
+            if(map.get("projectName").equals(projectEntity.getProjectName())){
+                httpResponseEntity.setMessage("项目名重复");
+                httpResponseEntity.setCode("111");
+                return httpResponseEntity;
+            }
+        }
 
         int flag = projectService.addProjectInfo(projectEntity);
         if(flag!=0){

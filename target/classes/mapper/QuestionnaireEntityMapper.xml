@@ -368,15 +368,11 @@
     AND que.data_id = dat.id
   </select>
 
-  <!--查询历史问卷/模糊搜索-->
+  <!--查询问卷列表-->
   <select id="queryQuestionnaireList" resultType="java.util.Map">
     SELECT id,project_id as projectId,question_name as questionName, end_time as endTime
     FROM questionnaire_info
-    WHERE question_stop = "4"
-    AND created_by = #{user,jdbcType=CHAR}
-    <if test="questionName != null">
-      AND question_name LIKE '%${questionName}%'
-    </if>
+
   </select>
 
   <!--根据问卷id查询问卷的详细信息-->
@@ -567,20 +563,29 @@
     SELECT id,question_name as questionName,release_time AS releaseTime, project_id as projectId,question_content AS questionContent
     FROM questionnaire_info
     WHERE project_id = #{projectId}
+    AND
+    question_stop != "4"
   </select>
   <!--查询历史问卷-->
   <select id="queryHistoryQuestionnaire" parameterType="java.util.Map" resultType="map">
-    SELECT id,question_name as questionName,release_time AS releaseTime,answer_total AS answerTotal,question_content as questionContent, project_id as projectId,end_time AS endTime,creation_date AS creationDate, data_id AS dataId
-    FROM questionnaire_info
+    SELECT ques.id as id,ques.question_name as questionName,ques.release_time AS releaseTime,ques.answer_total AS answerTotal,
+           ques.question_content as questionContent, ques.project_id as projectId,ques.end_time AS endTime,ques.creation_date AS creationDate, ques.data_id AS dataId,
+           pro.project_name as projectName
+    FROM questionnaire_info as ques , project_info as pro
     WHERE
-    question_stop = "4"
-    <if test="projectId != null">
-      AND project_id = #{projectId,jdbcType = VARCHAR}
-    </if>
-    <if test="dataId != null">
-      AND data_id = #{dataId,jdbcType = VARCHAR}
-    </if>
+    ques.question_stop = "4"
+    AND
+    ques.created_by = #{user}
+    AND
+    pro.id = ques.project_id
   </select>
+
+  <update id="updateQuestionStop" parameterType="java.lang.String">
+    update questionnaire_info
+    set question_stop = "4"
+    where
+    id = #{id}
+  </update>
   <!--根据id查询问卷状态-->
   <select id="selectQuestionnaireStatus" parameterType="com.aim.questionnaire.dao.entity.QuestionnaireEntity" resultType="java.lang.String">
     SELECT question_stop AS questionStop
