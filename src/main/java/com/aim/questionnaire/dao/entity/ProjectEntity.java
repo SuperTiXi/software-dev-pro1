@@ -267,6 +267,10 @@ public class ProjectEntity {
         this.lastUpdateDate = lastUpdateDate;
     }
 
+    public ProjectEntity(String id) {
+        this.id = id;
+    }
+
     public ProjectEntity(String id, String userId, String projectName, String projectContent, String createdBy, Date creationDate, String lastUpdatedBy, Date lastUpdateDate) {
         this.id = id;
         this.userId = userId;

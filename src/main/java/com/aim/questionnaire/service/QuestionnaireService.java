@@ -2,7 +2,9 @@ package com.aim.questionnaire.service;
 
 import com.aim.questionnaire.common.utils.DateUtil;
 import com.aim.questionnaire.common.utils.UUIDUtil;
+import com.aim.questionnaire.dao.ProjectEntityMapper;
 import com.aim.questionnaire.dao.QuestionnaireEntityMapper;
+import com.aim.questionnaire.dao.entity.ProjectEntity;
 import com.aim.questionnaire.dao.entity.QuestionnaireEntity;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -17,6 +19,9 @@ public class QuestionnaireService {
     
     @Autowired
     private QuestionnaireEntityMapper questionnaireEntityMapper;
+
+    @Autowired
+    private ProjectEntityMapper projectEntityMapper;
 
     /**
      * 
@@ -120,7 +125,13 @@ public class QuestionnaireService {
      * @return
      */
     public List<Map<String,Object>> queryQuestionnaireList(HashMap<String, Object> map) {
-        return questionnaireEntityMapper.queryQuestionnaireList(map);
+        List<Map<String, Object>> maps = questionnaireEntityMapper.queryQuestionnaireList(map);
+        for (Map<String, Object> stringObjectMap : maps) {
+            String projectId = (String) stringObjectMap.get("projectId");
+            HashMap<String, Object> map1 = projectEntityMapper.queryProjectById(new ProjectEntity(projectId));
+            stringObjectMap.put("projectName", map1.get("projectName"));
+        }
+        return maps;
     }
 
     public List<Map<String,Object>> queryQuestionnaireMould(String dataId) {
@@ -158,6 +169,9 @@ public class QuestionnaireService {
     }
 
     public int modifyHistoryQuestionnaireStatus(HashMap<String, Object> map) {
+        Object endTime = map.get("endTime");
+        Date date = new Date((long) endTime);
+        map.put("endTime", date);
         return questionnaireEntityMapper.modifyHistoryQuestionnaireStatus(map);
     }
 }

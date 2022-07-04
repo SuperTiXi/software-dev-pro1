@@ -636,9 +636,6 @@ function getQrcode() {
     });
 }
 
-function gotoPreview() {
-    window.open(previewUrl);
-}
 
 // 创建时间选择器
 function createDtePicker() {
@@ -687,7 +684,7 @@ function designQuestionnaire() {
 
 //预览问卷
 $('#ctl02_hrefView').click(function () {
-    window.open('previewQuestionnaire.html?=' + questionId)
+    window.open('previewQuestionnaire.html?i=' + questionId)
 });
 
 
